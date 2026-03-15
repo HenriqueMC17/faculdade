@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo de Produtos</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 30px;
+      color: #222;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      text-align: center;
+      color: #1565c0;
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      color: #0d47a1;
+      margin-top: 35px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 8px;
+    }
+
+    h3 {
+      color: #1976d2;
+      margin-top: 25px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #cccccc;
+      padding: 12px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #1976d2;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .produto-img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background: #eee;
+    }
+
+    .descricao-box {
+      background: #f8fbff;
+      border-left: 5px solid #1976d2;
+      padding: 18px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #0d47a1;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      padding-left: 22px;
+      line-height: 1.8;
+    }
+
+    dl {
+      background: #fafafa;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    dt {
+      font-weight: bold;
+      color: #333;
+      margin-top: 10px;
+    }
+
+    dd {
+      margin-left: 20px;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .obs {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Catálogo de Produtos</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Foto</th>
+          <th>Código</th>
+          <th>Descrição</th>
+          <th>Qtde em estoque</th>
+          <th>Valor Unitário</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <img
+              class="produto-img"
+              src="https://via.placeholder.com/90?text=Mouse+1"
+              alt="Mouse Laser com fio Dell"
+            />
+          </td>
+          <td>1</td>
+          <td>Mouse Laser com fio Dell</td>
+          <td>5</td>
+          <td>R$ 179,00</td>
+        </tr>
+        <tr>
+          <td>
+            <img
+              class="produto-img"
+              src="https://via.placeholder.com/90?text=Mouse+2"
+              alt="Mouse Bluetooth Dell"
+            />
+          </td>
+          <td>2</td>
+          <td>Mouse Bluetooth Dell</td>
+          <td>6</td>
+          <td>R$ 338,00</td>
+        </tr>
+        <tr>
+          <td>
+            <img
+              class="produto-img"
+              src="https://via.placeholder.com/90?text=Mouse+3"
+              alt="Mouse óptico usb preto 100"
+            />
+          </td>
+          <td>3</td>
+          <td>Mouse óptico usb preto 100</td>
+          <td>3</td>
+          <td>R$ 48,30</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Descrição</h2>
+
+    <div class="descricao-box">
+      <h3>Características do Produto</h3>
+
+      <label>Especificações</label>
+      <ul>
+        <li>Sensor óptico preciso com 1.600 DPI permite que você trabalhe na maioria das superfícies.</li>
+        <li>Configuração USB rápida e fácil com cabo de 1,5m.</li>
+        <li>Design ambidestro, produzido para caber de forma natural e perfeita na palma da sua mão.</li>
+        <li>Três botões integrados.</li>
+        <li>Ampla compatibilidade: Windows e Mac.</li>
+      </ul>
+
+      <h3>Avaliação do produto</h3>
+      <dl>
+        <dt>José Aparecido</dt>
+        <dd>Muito bom</dd>
+
+        <dt>Joaquim Jorge</dt>
+        <dd>Bom</dd>
+      </dl>
+    </div>
+
+    <p class="obs">
+      Observação: para uso offline, substitua as imagens dos produtos por arquivos locais, como
+      <code>mouse1.jpg</code>, <code>mouse2.jpg</code> e <code>mouse3.jpg</code>.
+    </p>
+  </div>
+</body>
+</html>
