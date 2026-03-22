@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pequenos Gênios | Cursos de Extensão</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="container">
+      <header class="reveal">
+        <div class="logo">
+          <i class="fas fa-graduation-cap"></i> Pequenos<span>Gênios</span>
+        </div>
+        <p class="subtitle">
+          Descubra um mundo de aprendizado e diversão com nossos cursos de
+          extensão pensados para o futuro do seu filho.
+        </p>
+      </header>
+
+      <div id="course-list" class="course-grid">
+        <!-- Courses will be injected here by script.js -->
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Setup observer as a global function to be used by script.js
+        window.initRevealObserver = () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal:not(.active)').forEach(el => observer.observe(el));
+        };
+
+        window.addEventListener('DOMContentLoaded', () => {
+            // Render initial courses and setup observer
+            if (typeof renderCourses === 'function') {
+                renderCourses();
+            }
+            window.initRevealObserver();
+        });
+    </script>
+  </body>
+</html>

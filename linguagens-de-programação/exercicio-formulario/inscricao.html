@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição | Pequenos Gênios</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="container">
+        <header>
+            <a href="index.html" class="logo" style="text-decoration: none;">
+                <i class="fas fa-graduation-cap"></i> Pequenos<span>Gênios</span>
+            </a>
+            <h1 id="enrollment-title">Ficha de Inscrição</h1>
+            <p class="subtitle">Preencha os dados abaixo para garantir a vaga no curso escolhido.</p>
+        </header>
+
+        <form id="enrollment-form" class="form-container">
+            <!-- Dados do Aluno -->
+            <div class="form-section">
+                <div class="section-title">
+                    <i class="fas fa-child"></i> Dados do Aluno
+                </div>
+                <div class="form-grid">
+                    <div class="input-group full-width">
+                        <label for="studentName">Nome Completo <span>*</span></label>
+                        <input type="text" id="studentName" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="zipCode">CEP</label>
+                        <input type="text" id="zipCode" placeholder="00000-000" maxlength="9" onblur="handleCEP(this.value)" oninput="applyCEPMask(this)">
+                    </div>
+                    <div class="input-group full-width">
+                        <label for="address">Endereço</label>
+                        <input type="text" id="address">
+                    </div>
+                    <div class="input-group">
+                        <label for="number">Número</label>
+                        <input type="text" id="number">
+                    </div>
+                    <div class="input-group">
+                        <label for="complement">Complemento</label>
+                        <input type="text" id="complement">
+                    </div>
+                    <div class="input-group">
+                        <label for="neighborhood">Bairro</label>
+                        <input type="text" id="neighborhood">
+                    </div>
+                    <div class="input-group">
+                        <label for="city">Cidade</label>
+                        <input type="text" id="city">
+                    </div>
+                    <div class="input-group">
+                        <label for="state">Estado</label>
+                        <input type="text" id="state">
+                    </div>
+                    <div class="input-group">
+                        <label for="phone">Telefone</label>
+                        <input type="tel" id="phone" oninput="applyPhoneMask(this)" maxlength="15">
+                    </div>
+                    <div class="input-group">
+                        <label for="cellphone">Celular <span>*</span></label>
+                        <input type="tel" id="cellphone" required oninput="applyPhoneMask(this)" maxlength="15">
+                    </div>
+                    <div class="input-group">
+                        <label for="email">E-mail <span>*</span></label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="color">Cor/Raça <span>*</span></label>
+                        <select id="color" required>
+                            <option value="">Selecione...</option>
+                            <option value="Branca">Branca</option>
+                            <option value="Preta">Preta</option>
+                            <option value="Parda">Parda</option>
+                            <option value="Amarela">Amarela</option>
+                            <option value="Indígena">Indígena</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dados do Pai -->
+            <div class="form-section">
+                <div class="section-title">
+                    <i class="fas fa-user-tie"></i> Dados do Pai
+                </div>
+                <div class="form-grid">
+                    <div class="input-group full-width">
+                        <label for="fatherName">Nome do Pai <span>*</span></label>
+                        <input type="text" id="fatherName" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="fatherBirthday">Data de Nascimento</label>
+                        <input type="date" id="fatherBirthday">
+                    </div>
+                    <div class="input-group">
+                        <label for="fatherBirthplace">Naturalidade</label>
+                        <input type="text" id="fatherBirthplace" list="naturalidade-list">
+                    </div>
+                    <div class="input-group">
+                        <label for="fatherEducation">Instrução</label>
+                        <input type="text" id="fatherEducation">
+                    </div>
+                    <div class="input-group">
+                        <label for="fatherProfession">Profissão</label>
+                        <input type="text" id="fatherProfession" list="profissao-list">
+                    </div>
+                    <div class="input-group">
+                        <label for="fatherCellphone">Celular <span>*</span></label>
+                        <input type="tel" id="fatherCellphone" required oninput="applyPhoneMask(this)" maxlength="15">
+                    </div>
+                    <div class="input-group">
+                        <label for="fatherEmail">E-mail <span>*</span></label>
+                        <input type="email" id="fatherEmail" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="fatherCpf">CPF <span>*</span></label>
+                        <input type="text" id="fatherCpf" required placeholder="000.000.000-00" oninput="applyCPFMask(this)" maxlength="14">
+                    </div>
+                    <div class="input-group checkbox-group">
+                        <input type="checkbox" id="fatherIsFinancialRep">
+                        <label for="fatherIsFinancialRep">Responsável Financeiro</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dados da Mãe -->
+            <div class="form-section">
+                <div class="section-title">
+                    <i class="fas fa-user-dress"></i> Dados da Mãe
+                </div>
+                <div class="form-grid">
+                    <div class="input-group full-width">
+                        <label for="motherName">Nome da Mãe <span>*</span></label>
+                        <input type="text" id="motherName" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="motherBirthday">Data de Nascimento</label>
+                        <input type="date" id="motherBirthday">
+                    </div>
+                    <div class="input-group">
+                        <label for="motherBirthplace">Naturalidade</label>
+                        <input type="text" id="motherBirthplace" list="naturalidade-list">
+                    </div>
+                    <div class="input-group">
+                        <label for="motherEducation">Instrução</label>
+                        <input type="text" id="motherEducation">
+                    </div>
+                    <div class="input-group">
+                        <label for="motherProfession">Profissão</label>
+                        <input type="text" id="motherProfession" list="profissao-list">
+                    </div>
+                    <div class="input-group">
+                        <label for="motherCellphone">Celular <span>*</span></label>
+                        <input type="tel" id="motherCellphone" required oninput="applyPhoneMask(this)" maxlength="15">
+                    </div>
+                    <div class="input-group">
+                        <label for="motherEmail">E-mail <span>*</span></label>
+                        <input type="email" id="motherEmail" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="motherCpf">CPF <span>*</span></label>
+                        <input type="text" id="motherCpf" required placeholder="000.000.000-00" oninput="applyCPFMask(this)" maxlength="14">
+                    </div>
+                    <div class="input-group checkbox-group">
+                        <input type="checkbox" id="motherIsFinancialRep">
+                        <label for="motherIsFinancialRep">Responsável Financeiro</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dados do Curso -->
+            <div class="form-section">
+                <div class="section-title">
+                    <i class="fas fa-book"></i> Dados do Curso
+                </div>
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label for="courseName">Nome do Curso Escolhido <span>*</span></label>
+                        <input type="text" id="courseName" required readonly>
+                    </div>
+                    <div class="input-group">
+                        <label for="entryDate">Data de Ingresso <span>*</span></label>
+                        <input type="date" id="entryDate" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="courseValue">Valor <span>*</span></label>
+                        <input type="text" id="courseValue" required readonly>
+                    </div>
+                    <div class="input-group">
+                        <label for="paymentInstallments">Qtd. de Parcelas <span>*</span></label>
+                        <select id="paymentInstallments" required>
+                            <option value="">Selecione...</option>
+                            <option value="1">À vista</option>
+                            <option value="2">2x</option>
+                            <option value="3">3x</option>
+                            <option value="6">6x</option>
+                            <option value="12">12x</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-actions">
+                <button type="button" class="btn" style="background: var(--text-secondary);" onclick="window.history.back()">Cancelar</button>
+                <button type="submit" class="btn" id="submit-btn">Finalizar Inscrição</button>
+            </div>
+        </form>
+    </div>
+
+    <datalist id="naturalidade-list"></datalist>
+    <datalist id="profissao-list"></datalist>
+
+    <!-- Modal de Sucesso -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal">
+            <i class="fas fa-check-circle"></i>
+            <h2>Inscrição Realizada!</h2>
+            <p>Os dados foram enviados com sucesso. Em breve entraremos em contato.</p>
+            <button class="btn" style="margin-top: 20px;" onclick="window.location.href='index.html'">Voltar ao Início</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Form specific initialization
+        window.addEventListener('DOMContentLoaded', () => {
+            if (typeof initEnrollmentForm === 'function') {
+                initEnrollmentForm();
+            }
+        });
+    </script>
+</body>
+</html>

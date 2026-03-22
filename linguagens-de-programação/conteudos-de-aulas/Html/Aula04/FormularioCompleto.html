@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulário Completo</title>
+  </head>
+  <body>
+    <form
+      action="https://69b88186e69653ffe6a4b75b.mockapi.io/cliente"
+      method="post"
+    >
+      <fieldset>
+        <legend>Dados do Cliente</legend>
+        <p>
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" required />
+        </p>
+        <p>
+          <label for="altura">Altura:</label>
+          <input
+            type="number"
+            id="altura"
+            name="altura"
+            min="0"
+            max="3"
+            step="0.01"
+          />
+        </p>
+        <p>
+          <label for="corCabelo">Cor do Cabelo:</label>
+          <input type="color" id="corCabelo" name="corCabelo" />
+        </p>
+        <p>
+          <label for="dataNascimento">Data de Nascimento:</label>
+          <input type="date" id="dataNascimento" name="dataNascimento" />
+        </p>
+        <p>
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" required />
+        </p>
+        <p>
+          <label for="senha">Senha:</label>
+          <input type="password" id="senha" name="senha" required />
+        </p>
+        <p>
+          <label for="genero">Gênero:</label>
+          <input type="radio" name="genero" id="generoMasculino" value="m" />
+          <label for="generoMasculino">Masculino</label>
+          <input type="radio" name="genero" id="generoFeminino" value="f" />
+          <label for="generoFeminino">Feminino</label>
+        </p>
+        <p>
+          <label>Gosta de:</label>
+          <input
+            type="checkbox"
+            id="gostaDeMusica"
+            name="gostaDeMusica"
+            value="musica"
+          />
+          <label for="gostaDeMusica">Música</label>
+          <input
+            type="checkbox"
+            id="gostaDeEsportes"
+            name="gostaDeEsportes"
+            value="esportes"
+          />
+          <label for="gostaDeEsportes">Esportes</label>
+            <input
+                type="checkbox"
+                id="gostaDeTecnologia"
+                name="gostaDeTecnologia"
+                value="tecnologia"
+            />
+            <label for="gostaDeTecnologia">Tecnologia</label>
+        </p>
+        <p>
+            <label for="upload">Upload de RG:</label>
+            <input type="file" id="upload" name="upload" />
+        </p>
+        <p>
+            <label for="estado">Estado de nascimento:</label>
+            <select id="estado" name="estado">
+                <optgroup label="Região Sudeste">
+                    <option value="SP">São Paulo</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                </optgroup>
+                <optgroup label="Região Sul">
+                    <option value="PR">Paraná</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                </optgroup>
+            </select>
+        </p>
+        <p>
+            <button type="submit">Enviar</button>
+            <button type="reset">Limpar</button>
+        </p>
+      </fieldset>
+    </form>
+  </body>
+</html>
