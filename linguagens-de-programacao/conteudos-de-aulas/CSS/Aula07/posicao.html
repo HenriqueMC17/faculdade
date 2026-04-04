@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - Posicionamento</title>
+</head>
+<style>
+    .static {
+        /* position: static; */
+        background-color: grey;
+        border: 1px solid black;
+        height: 30px;
+        margin: 5px;
+    }
+    .relative {
+        position: relative;
+        background-color: yellow;
+        border: 1px solid black;
+        height: 80px;
+        margin: 5px;
+    }
+    .relative-alterado {
+        top: 20px;
+        left: 20px;
+    }
+    .absolute {
+        position: absolute;
+        background-color: seagreen;
+        border: 1px solid black;
+        height: 30px;
+        width: 70px;
+        top : 20px;
+        right: 20px;
+    }
+    .fixed {
+        position: fixed;
+        background-color: #c2bbaa;
+        border: 1px solid black;
+        height: 50px;
+        width: 50px;
+    }
+    body {
+        padding-bottom: 1000px;
+    }
+    .sticky {
+        position: sticky;
+        background-color: red;
+        border: 1px solid black;
+        height: 50px;
+        width: 50px;
+        color: white;
+        top: 30px;
+        left: 200px;
+    }
+</style>
+<body>
+    <div class="sticky">Sticky</div>
+    <div class="fixed">Fixed</div>
+    <div class="static">Static</div>
+    <div class="static">Static</div>
+    <div class="relative">Relative
+        <div class="absolute">Absolute</div>
+    </div>
+    <div class="relative relative-alterado">Relative Alterado
+        <div class="absolute">Absolute</div>
+    </div>
+    <div class="static">Static</div>
+    <p>Parágrafo</p>
+    <div class="relative">Relative</div>
+    <div class="absolute">Absolute</div>
+    <div class="fixed">Fixed</div>
+    <div class="sticky">Sticky</div>
+</body>
+</html>

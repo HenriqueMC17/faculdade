@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anatomia do CSS</title>
+</head>
+<style>
+    /* Formas de aplicar valores nas propriedades: */   
+    div {
+        /* 1. Valor código: */
+        background-color: #c2bbbb;
+        /* 2. Valor por unidade de medida */
+        font-size: 30px;
+        /* 3. Valor por palavra-chave: */
+        color: white;
+        /* 4.Código, unidade de medida e palavra-chave */
+        border: #312f2f 2px solid;
+        /* 5. Por função */
+        width: calc(100% - 350px);
+    }
+    div:hover {
+        background-color: red;
+    }
+    div::first-letter {
+        font-size: 120px;
+    }
+</style>
+<body>
+    <h1>Anatomia do CSS</h1>
+    <div>
+        <p>Formas de aplicar valores nas propriedades</p>
+    </div>
+</body>
+</html>
