@@ -1,0 +1,141 @@
+/* 
+    SSOT Applied: Modern Typography, Premium Design, Flexbox Layout
+    Design System for Login Screen
+*/
+
+:root {
+    --bg-page: #e9ecef;
+    --bg-card: #95a5c6;
+    --text-primary: #1a1a1a;
+    --input-bg: #ffffff;
+    --input-border: #ced4da;
+    --button-bg: #f8f9fa;
+    --button-text: #343a40;
+    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+    --radius-heavy: 30px;
+    --radius-light: 4px;
+    --transition-fast: 0.2s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-page);
+    min-height: 100vh;
+    /* Flexbox centralização principal */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.login-card {
+    background-color: var(--bg-card);
+    width: 100%;
+    max-width: 380px;
+    padding: 3rem 2.5rem;
+    border-radius: var(--radius-heavy);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    /* Flexbox layout vertical da card */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.avatar-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.avatar-circle {
+    width: 120px;
+    height: 120px;
+    border: 3px solid var(--text-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+}
+
+.avatar-circle svg {
+    width: 60%;
+    height: 60%;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.input-group input {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--input-border);
+    border-radius: var(--radius-light);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: var(--transition-fast);
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--text-primary);
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
+}
+
+.button-container {
+    /* Flexbox alinhamento do botão */
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+}
+
+.btn-submit {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: 1px solid #adb5bd;
+    padding: 0.4rem 1.2rem;
+    font-size: 1rem;
+    border-radius: var(--radius-light);
+    cursor: pointer;
+    font-family: inherit;
+    transition: var(--transition-fast);
+}
+
+.btn-submit:hover {
+    background-color: #ffffff;
+    border-color: var(--text-primary);
+    color: var(--text-primary);
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 2rem 1.5rem;
+    }
+}

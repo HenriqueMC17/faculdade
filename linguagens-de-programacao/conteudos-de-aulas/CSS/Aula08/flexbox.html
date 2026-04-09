@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 08 - Flexbox</title>
+    <style>
+        .container {
+            border: 1px solid black;
+            width: 300px;
+            height: 100px;
+            display: flex;
+            /* alterar os eixos */
+            flex-direction: column;
+            flex-direction: column-reverse;
+            flex-direction: row-reverse;
+            flex-direction: row; /*comportamento padrão */
+            /* pular linhas */
+            flex-wrap: wrap;
+            flex-wrap: wrap-reverse;
+            /* flex-direction e flex-wrap juntos */
+            flex-flow: row wrap;
+            /* alinhar itens */
+            justify-content: flex-start; /*alinhamento padrão*/
+            /* justify-content: center;
+            justify-content: flex-end;
+            justify-content: space-around;
+            justify-content: space-between; */
+            /* justify-content: space-evenly; */
+            /* alinhar itens no eixo transversal */
+            align-items: flex-start;
+            align-items: center;
+            gap: 10px;
+        }
+        .item {
+            font-size: 30px;
+            border: 1px solid red;
+            width: 50px;
+            align-self: start;
+        }
+        .item2 {
+            font-size: 30px;
+            border: 1px solid red;
+            width: 50px;
+            align-self: center;
+        }
+        .item3 {
+            font-size: 30px;
+            border: 1px solid red;
+            width: 50px;
+            align-self: end;
+        }
+        .container2 {
+            border: 3px solid blue;
+            width: 300px;
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .container3 {
+            border: 3px solid green;
+            width: 300px;
+            height: 100px;
+            display: flex;
+            gap: 5px;
+   
+        }
+            .item4 {
+                font-size: 30px;
+                border: 1px solid red;
+                width: 50px;
+                order: 2;
+                flex-grow: 1;
+            }
+            .item5 {
+                font-size: 30px;
+                border: 1px solid red;
+                width: 50px;
+                order: 1;
+                flex-grow: 2;
+            }
+            .item6 {
+                font-size: 30px;
+                border: 1px solid red;
+                width: 50px;
+                order: 3;
+                flex-grow: 1;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+    </div>
+    <br>
+    <div class="container2">
+        <div class="item">8</div>
+        <div class="item2">9</div>
+        <div class="item3">10</div>
+    </div>
+    <br>
+    <div class="container3">
+            <div class="item4">11</div>
+            <div class="item5">12</div>
+            <div class="item6">13</div>
+    </div>
+    
+</body>
+</html>
