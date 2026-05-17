@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - Criar elementos HTML</title>
+</head>
+<body>
+    <p>
+        <label for="texto">Digite o texto:</label>
+        <input type="text" id="texto">
+        <button onclick="criarElemento(event)">Criar Elemento</button>
+    </p>
+    <p>
+        <ul></ul>
+    </p>
+</body>
+<script>
+    function criarElemento(event) {
+        event.preventDefault();
+        let caixaTexto = document.querySelector('#texto');
+        let texto = caixaTexto.value;
+        let lista = document.querySelector('ul');
+        let item = document.createElement('li');
+        item.textContent = texto;
+        lista.appendChild(item);
+        caixaTexto.value = ''; 
+    }
+</script>
+</html>

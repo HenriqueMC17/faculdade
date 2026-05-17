@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - Consultar CEP</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Consulta de CEP</legend>
+            <label for="cep">CEP:</label>
+            <input type="text" id="cep" name="cep">
+            <button onclick="pesquisarCep(event)">Consultar</button>
+        </fieldset>
+    </form>
+    <form>
+        <fieldset>
+            <legend>Dados do endereço</legend>
+            <p style="color: red; visibility: hidden;" id="carregando">
+                Carregando...
+            </p>
+            <p>
+                <label for="rua">Rua:</label>
+                <input type="text" id="rua" name="rua">
+            </p>
+            <p>
+                <label for="bairro">Bairro:</label>
+                <input type="text" id="bairro" name="bairro">
+            </p>
+            <p>
+                <label for="estado">Estado:</label>
+                <input type="text" id="estado" name="estado">
+            </p>
+        </fieldset>
+    </form>
+</body>
+ <!-- <script src="AsyncAwait.js"></script> -->
+  <script src="Promise.js"></script>
+</html>

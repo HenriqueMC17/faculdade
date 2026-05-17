@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - Manipular Texto</title>
+</head>
+<body>
+    <h1>DOM - Manipular Texto</h1>
+    <p class="porClasse">Texto do parágrafo</p>
+    <p id="porId">Texto do parágrafo</p>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <p>
+        <input type="text" id="inputTexto">
+    </p>
+</body>
+<script>
+    let titulo = document.querySelector('h1');
+    console.log(titulo.textContent);
+    titulo.textContent = 'Manipulando Texto com DOM';
+    let paragrafo1 = document.querySelector('.porClasse');
+    paragrafo1.innerText = 'Texto do parágrafo alterado por classe';
+    document.querySelector('#porId').textContent = 'Texto do parágrafo alterado por id';
+    let itens = document.querySelectorAll('li');
+    console.log(itens);
+    itens[1].textContent = 'Item 2 alterado';
+    let caixaTexto = document.querySelector('#inputTexto');
+    caixaTexto.value = 'Edson';
+</script>
+</html>

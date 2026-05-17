@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Simples - Fetch</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <Legend>Cadastro de Aluno</Legend>
+            <p>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+            </p>
+            <p>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu email">
+            </p>
+            <p>
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="Digite seu telefone">
+            </p>
+            <p>
+                <button onclick="gravar(event)">Gravar</button>
+            </p>
+        </fieldset>
+    </form>
+</body>
+<script>
+    const AlunoTeste = {
+        nome: 'João Silva',
+        email: 'joao.silva@example.com',
+        telefone: '(11) 99999-9999'
+    };
+    console.log(JSON.stringify(AlunoTeste));
+    console.log(JSON.parse(JSON.stringify(AlunoTeste)));
+
+    function gravar(event) {
+        event.preventDefault();
+        let nome = document.getElementById('nome').value;
+        let email = document.getElementById('email').value;
+        let telefone = document.getElementById('telefone').value;
+        let aluno = {
+            nome: nome,
+            email: email,
+            telefone: telefone
+        };
+        fetch('https://66242a4004457d4aaf9bc3e9.mockapi.io/Aluno', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(aluno)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            alert('Aluno cadastrado com sucesso!');
+        })
+        .catch(error => {
+            console.error(error);
+            alert('Erro ao cadastrar aluno!');
+        });
+    }
+</script>
+</html>

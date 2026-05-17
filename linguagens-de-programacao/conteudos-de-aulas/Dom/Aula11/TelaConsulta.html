@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tela de Consulta - Promise.all</title>
+  </head>
+  <body>
+    <select name="pessoa" id="pessoa"></select>
+    <hr />
+    <td>
+        <label for="pesquisaNome">Nome:</label>
+        <input type="text" id="pesquisaNome" name="pesquisaNome" placeholder="Digite o nome do aluno para pesquisar">
+        <button onclick="filtrar(event)">Filtrar</button>
+    </td>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Telefone</th>
+        </tr>
+      </thead>
+      <tbody id="dadosAlunos"></tbody>
+    </table>
+  </body>
+  <script>
+    let alunos = [];
+    let pessoas = [];
+    async function dadosAPI() {
+      const linkPessoa = "https://66242a4004457d4aaf9bc3e9.mockapi.io/Pessoa";
+      const linkAluno = "https://66242a4004457d4aaf9bc3e9.mockapi.io/Aluno";
+      let resposta = await Promise.all([fetch(linkPessoa), fetch(linkAluno)]);
+      console.log(resposta);
+    //   console.log(await resposta[0].json());
+    //   console.log(await resposta[1].json());
+      pessoas = await resposta[0].json();
+      alunos = await resposta[1].json();
+      console.log(pessoas);
+      let selectPessoa = document.getElementById('pessoa');
+      pessoas.forEach(pessoa => {
+        console.log(pessoa);
+        let option = document.createElement('option');
+        option.value = pessoa.id;
+        option.textContent = pessoa.nome;
+        selectPessoa.appendChild(option);
+      });
+      montaTabela(alunos);
+    }
+    dadosAPI();
+    async function montaTabela(listaAlunos) {
+      let tbody = document.getElementById('dadosAlunos');
+      tbody.innerHTML = '';
+      listaAlunos.forEach(aluno => {
+        let tr = document.createElement('tr');
+        let tdNome = document.createElement('td');
+        tdNome.textContent = aluno.nome;
+        let tdEmail = document.createElement('td');
+        tdEmail.textContent = aluno.email;
+        let tdTelefone = document.createElement('td');
+        tdTelefone.textContent = aluno.telefone;
+        tr.appendChild(tdNome);
+        tr.appendChild(tdEmail);
+        tr.appendChild(tdTelefone);
+        tbody.appendChild(tr);
+      });
+    }
+    function filtrar(event) {
+        event.preventDefault();
+        let pesquisaNome = document.getElementById('pesquisaNome').value;
+        let alunosFiltrados = alunos.filter(aluno => 
+            aluno.nome.toLowerCase()
+            .includes(pesquisaNome.toLowerCase()));
+        montaTabela(alunosFiltrados);
+    }
+  </script>
+</html>

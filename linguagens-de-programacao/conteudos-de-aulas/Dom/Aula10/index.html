@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - Menu</title>
+</head>
+<body>
+    <h1>Menu de Navegação</h1>
+    <ul>
+        <li><a href="../../CSS/Aula06/Anatomia.html">CSS - Anatomia</a></li>
+        <li><a href="../../CSS/Aula07/posicao.html">CSS - Posição</a></li>
+        <li><a href="../../Html/Aula05/Container.html">HTML - Container</a></li>
+        <li><a href="../Aula09/ManipularTexto.html">Dom - Manipular Texto</a></li>
+    </ul>
+    <div class="conteudo">
+        
+    </div>
+</body>
+<script>
+    //mostrar conteúdo dos links na div.conteudo
+    let links = document.querySelectorAll('a');
+    for (let i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', function(event) {
+            event.preventDefault();
+            let url = this.getAttribute('href');
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector('.conteudo').innerHTML = data;
+                })
+        
+        });
+    }
+</script>
+</html>

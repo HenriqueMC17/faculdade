@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - Manipular Eventos</title>
+</head>
+<body onload="carregarTela()">
+    <h1 onmouseenter="passouMouse()">DOM - Manipular Eventos</h1>
+    <p>
+        <label for="palavra">Digite o texto:</label>
+        <input type="text" id="palavra">
+        <button onclick="contar(event)">Contar</button>
+    </p>
+    <p id="resultado">
+        Quantidade de caracteres:
+    </p>
+</body>
+<script>
+    //maneira imperativa
+    function carregarTela() {
+        alert('Tela carregada!');
+    }
+    function contar(event) {
+        event.preventDefault();
+        let texto = document.querySelector('#palavra').value;
+        let resultado = document.querySelector('#resultado');
+        resultado.textContent = 'Quantidade de caracteres: ' + texto.length;
+    }
+    function passouMouse() {
+        alert('Tira o mouse daí!!!!');
+    }
+    //maneira declarativa - escutador de eventos
+    let caixaTexto = document.querySelector('#palavra');
+    caixaTexto.addEventListener('focusin', function() {
+        console.log('Caixa de texto focada');
+    });
+    caixaTexto.addEventListener('focusout', () => {
+        console.log('Caixa de texto desfocada');
+    });
+</script>
+</html>

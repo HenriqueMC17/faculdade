@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - Manipular Propriedades</title>
+</head>
+<style>
+    .exemplo {
+        font-size: 20px;
+        color: blue;
+    }
+</style>
+<body>
+    <h1>DOM - Manipular Propriedades</h1>
+    <p>
+        <a href="https://www.google.com" target="_blank">Google</a>
+    </p>
+    <p>
+        <img src="" alt="">
+    </p>
+</body>
+<script>
+    let link = document.querySelector('a');
+    link.href = 'https://facens.br/';
+    link.textContent = 'Facens';
+    let imagem = document.querySelector('img');
+    imagem.setAttribute('src', 'https://facens.br/wp-content/uploads/2026/01/logo_unifacens_2026_norender-1.png');
+    imagem.alt = 'Logo da Facens';
+    imagem.width = 200;
+    //manipular CSS via javaScript
+    let titulo = document.querySelector('h1');
+    titulo.style.color = 'red';
+    titulo.style.backgroundColor = 'yellow';
+    link.className = 'exemplo';
+    link.classList.add('exemplo');
+    titulo.classList.add('exemplo');
+    titulo.classList.remove('exemplo');
+</script>
+</html>
