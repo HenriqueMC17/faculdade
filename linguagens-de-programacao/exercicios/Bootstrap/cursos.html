@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cursos - Chef Academy | Cursos Culinários Gratuitos</title>
+  <!-- Bootstrap 5.2 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Custom Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header & Navigation Bar -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+          <i class="bi bi-egg-fried text-warning fs-3"></i>
+          <span>Chef Academy</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="cursos.html">Todos os Cursos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#sobre">Sobre Nós</a>
+            </li>
+          </ul>
+
+          <div id="userSessionArea" class="d-flex align-items-center gap-3">
+            <a href="login.html" class="btn btn-outline-light btn-sm rounded-pill px-3">Entrar</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main style="margin-top: 80px;">
+    <!-- Course Filter & Header -->
+    <div class="container py-4">
+      <div class="row align-items-center justify-content-between g-3 mb-5">
+        <div class="col-md-6">
+          <h1 class="fw-bold text-dark display-5 mb-1">Nossos Cursos</h1>
+          <p class="text-muted mb-0">Explore nosso catálogo completo e comece a cozinhar hoje mesmo.</p>
+        </div>
+        <div class="col-md-4">
+          <div class="input-group shadow-sm">
+            <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-search"></i></span>
+            <input type="text" id="searchInput" class="form-control border-start-0 ps-0" placeholder="Filtrar por nome ou chef...">
+          </div>
+        </div>
+      </div>
+
+      <!-- Custom Cards Grid (Requisito do Slide) -->
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="coursesGrid">
+        <!-- Curso 1 -->
+        <div class="col course-card" data-title="Confeitaria Gourmet e Sobremesas de Luxo" data-chef="Chef Ana Silva" data-category="Confeitaria">
+          <div class="card card-cover h-100 text-bg-dark rounded-4" style="background-image: url('https://images.unsplash.com/photo-1587314168485-3236d6710814?q=80&w=1080&auto=format&fit=crop');" onclick="openCourseModal(1)">
+            <div class="card-cover-content">
+              <span class="card-tag">Confeitaria</span>
+              <h3 class="card-title-white">Confeitaria Gourmet e Sobremesas de Luxo</h3>
+              <div class="card-footer-info">
+                <div class="instructor-info">
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop" alt="Chef Ana Silva" class="instructor-avatar">
+                  <span class="instructor-name">Chef Ana Silva</span>
+                </div>
+                <div class="course-meta">
+                  <span><i class="bi bi-clock"></i> 20h</span>
+                  <span><i class="bi bi-bar-chart-fill text-warning"></i> Int.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curso 2 -->
+        <div class="col course-card" data-title="Cozinha Italiana Clássica e Massas Artesanais" data-chef="Chef Giovanni Rossi" data-category="Massas">
+          <div class="card card-cover h-100 text-bg-dark rounded-4" style="background-image: url('https://images.unsplash.com/photo-1563379971899-660589a01cf3?q=80&w=1080&auto=format&fit=crop');" onclick="openCourseModal(2)">
+            <div class="card-cover-content">
+              <span class="card-tag">Italiana</span>
+              <h3 class="card-title-white">Cozinha Italiana Clássica e Massas</h3>
+              <div class="card-footer-info">
+                <div class="instructor-info">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop" alt="Chef Giovanni Rossi" class="instructor-avatar">
+                  <span class="instructor-name">Giovanni Rossi</span>
+                </div>
+                <div class="course-meta">
+                  <span><i class="bi bi-clock"></i> 35h</span>
+                  <span><i class="bi bi-bar-chart-fill text-success"></i> Inic.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curso 3 -->
+        <div class="col course-card" data-title="A Arte do Sushi e Culinária Japonesa" data-chef="Chef Kenji Sato" data-category="Asiática">
+          <div class="card card-cover h-100 text-bg-dark rounded-4" style="background-image: url('https://images.unsplash.com/photo-1611143669185-af224c5e3252?q=80&w=1080&auto=format&fit=crop');" onclick="openCourseModal(3)">
+            <div class="card-cover-content">
+              <span class="card-tag">Asiática</span>
+              <h3 class="card-title-white">A Arte do Sushi e Culinária Japonesa</h3>
+              <div class="card-footer-info">
+                <div class="instructor-info">
+                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop" alt="Chef Kenji Sato" class="instructor-avatar">
+                  <span class="instructor-name">Kenji Sato</span>
+                </div>
+                <div class="course-meta">
+                  <span><i class="bi bi-clock"></i> 40h</span>
+                  <span><i class="bi bi-bar-chart-fill text-danger"></i> Avan.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curso 4 -->
+        <div class="col course-card" data-title="Panificação Artesanal e Fermentação Natural" data-chef="Chef Lucas Mendes" data-category="Panificação">
+          <div class="card card-cover h-100 text-bg-dark rounded-4" style="background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1080&auto=format&fit=crop');" onclick="openCourseModal(4)">
+            <div class="card-cover-content">
+              <span class="card-tag">Panificação</span>
+              <h3 class="card-title-white">Panificação e Fermentação Natural</h3>
+              <div class="card-footer-info">
+                <div class="instructor-info">
+                  <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=150&auto=format&fit=crop" alt="Chef Lucas Mendes" class="instructor-avatar">
+                  <span class="instructor-name">Lucas Mendes</span>
+                </div>
+                <div class="course-meta">
+                  <span><i class="bi bi-clock"></i> 15h</span>
+                  <span><i class="bi bi-bar-chart-fill text-success"></i> Inic.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curso 5 -->
+        <div class="col course-card" data-title="Carnes & Churrasco de Nível Premium" data-chef="Chef Marcos Assunção" data-category="Grelhados">
+          <div class="card card-cover h-100 text-bg-dark rounded-4" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1080&auto=format&fit=crop');" onclick="openCourseModal(5)">
+            <div class="card-cover-content">
+              <span class="card-tag">Grelhados</span>
+              <h3 class="card-title-white">Carnes & Churrasco de Nível Premium</h3>
+              <div class="card-footer-info">
+                <div class="instructor-info">
+                  <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop" alt="Chef Marcos Assunção" class="instructor-avatar">
+                  <span class="instructor-name">Marcos Assunção</span>
+                </div>
+                <div class="course-meta">
+                  <span><i class="bi bi-clock"></i> 25h</span>
+                  <span><i class="bi bi-bar-chart-fill text-warning"></i> Int.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curso 6 -->
+        <div class="col course-card" data-title="Cozinha Vegana Criativa e Sustentável" data-chef="Chef Clara Ramos" data-category="Vegana">
+          <div class="card card-cover h-100 text-bg-dark rounded-4" style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1080&auto=format&fit=crop');" onclick="openCourseModal(6)">
+            <div class="card-cover-content">
+              <span class="card-tag">Vegana</span>
+              <h3 class="card-title-white">Cozinha Vegana e Sustentável</h3>
+              <div class="card-footer-info">
+                <div class="instructor-info">
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop" alt="Chef Clara Ramos" class="instructor-avatar">
+                  <span class="instructor-name">Clara Ramos</span>
+                </div>
+                <div class="course-meta">
+                  <span><i class="bi bi-clock"></i> 30h</span>
+                  <span><i class="bi bi-bar-chart-fill text-success"></i> Inic.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- No Results alert -->
+      <div id="noResults" class="text-center py-5 d-none">
+        <i class="bi bi-search fs-1 text-muted d-block mb-3"></i>
+        <h3 class="fw-bold text-secondary">Nenhum curso encontrado</h3>
+        <p class="text-muted">Tente buscar por termos diferentes ou confira o nome dos chefs.</p>
+        <button class="btn btn-warning rounded-pill px-4" onclick="clearSearch()">Limpar Filtro</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Course Details Modal -->
+  <div class="modal fade" id="courseDetailModal" tabindex="-1" aria-labelledby="modalCourseTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header border-0 bg-dark text-white p-4">
+          <div>
+            <span class="badge bg-warning text-dark text-uppercase fw-bold mb-2" id="modalCourseCategory">Categoria</span>
+            <h4 class="modal-title fw-bold" id="modalCourseTitle">Título do Curso</h4>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div class="row g-4">
+            <div class="col-md-5">
+              <img id="modalCourseImage" src="" alt="Curso" class="img-fluid rounded-3 shadow-sm mb-3">
+              <div class="card bg-light border-0 p-3">
+                <h6 class="fw-bold text-dark mb-3"><i class="bi bi-info-circle-fill text-warning me-1"></i> Ficha Técnica</h6>
+                <div class="d-flex justify-content-between border-bottom pb-2 mb-2 small">
+                  <span class="text-muted">Instrutor:</span>
+                  <span class="fw-semibold text-dark" id="modalCourseChef">Chef Name</span>
+                </div>
+                <div class="d-flex justify-content-between border-bottom pb-2 mb-2 small">
+                  <span class="text-muted">Carga Horária:</span>
+                  <span class="fw-semibold text-dark" id="modalCourseDuration">0h</span>
+                </div>
+                <div class="d-flex justify-content-between small">
+                  <span class="text-muted">Nível de Dificuldade:</span>
+                  <span class="fw-semibold text-dark" id="modalCourseDifficulty">Nível</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-7">
+              <h5 class="fw-bold text-dark mb-3">Sobre este curso</h5>
+              <p id="modalCourseDescription" class="text-muted">Descrição detalhada do curso...</p>
+              
+              <h6 class="fw-semibold text-dark mt-4 mb-3">O que você vai aprender:</h6>
+              <ul class="list-unstyled small text-muted" id="modalCourseLessons">
+                <!-- Lessons listed dynamically -->
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer border-0 p-4 bg-light">
+          <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary-culinary rounded-pill px-4" onclick="enrollCourse()">
+            Matricular-se Grátis <i class="bi bi-arrow-right-short fs-5 align-middle"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="py-5 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 mb-4">
+          <h5 class="text-white fw-bold mb-3 d-flex align-items-center gap-2">
+            <i class="bi bi-egg-fried text-warning"></i> Chef Academy
+          </h5>
+          <p class="small">Levando a paixão pela culinária de forma acessível e profissional para todos, em qualquer lugar do mundo.</p>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h6 class="text-white fw-bold mb-3">Links Rápidos</h6>
+          <ul class="list-unstyled small">
+            <li class="mb-2"><a href="index.html" class="text-decoration-none">Início</a></li>
+            <li class="mb-2"><a href="cursos.html" class="text-decoration-none">Todos os Cursos</a></li>
+            <li class="mb-2"><a href="index.html#sobre" class="text-decoration-none">Sobre Nós</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h6 class="text-white fw-bold mb-3">Inscreva-se na nossa Newsletter</h6>
+          <p class="small">Receba receitas semanais exclusivas e avisos de novos cursos.</p>
+          <div class="input-group">
+            <input type="email" class="form-control border-secondary bg-dark text-white" placeholder="Seu melhor e-mail">
+            <button class="btn btn-warning" type="button">Assinar</button>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between pt-4 mt-4 border-top border-secondary small">
+        <p>&copy; 2026 Chef Academy. Todos os direitos reservados.</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#" class="text-decoration-none me-3"><i class="bi bi-instagram"></i></a></li>
+          <li class="list-inline-item"><a href="#" class="text-decoration-none me-3"><i class="bi bi-youtube"></i></a></li>
+          <li class="list-inline-item"><a href="#" class="text-decoration-none"><i class="bi bi-facebook"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap Bundle JS with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script for filtering, modals and dynamic user session -->
+  <script>
+    // Data list of courses
+    const coursesData = {
+      1: {
+        title: "Confeitaria Gourmet e Sobremesas de Luxo",
+        category: "Confeitaria",
+        chef: "Chef Ana Silva",
+        duration: "20h",
+        difficulty: "Intermediário",
+        image: "https://images.unsplash.com/photo-1587314168485-3236d6710814?q=80&w=1080&auto=format&fit=crop",
+        description: "Transforme sua paixão por doces em obras de arte profissionais. Neste curso intensivo, você aprenderá as bases técnicas da confeitaria fina e internacional, preparando pratos requintados com precisão e sofisticação.",
+        lessons: [
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> Fundamentos e utensílios básicos de pâtisserie francesa",
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> Macarons franceses: da massa perfeita aos recheios sedosos",
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> Temperagem de chocolate e produção de bombons finos",
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> Tortas espelhadas modernas (entremets) passo a passo"
+        ]
+      },
+      2: {
+        title: "Cozinha Italiana Clássica e Massas Artesanais",
+        category: "Italiana",
+        chef: "Giovanni Rossi",
+        duration: "35h",
+        difficulty: "Iniciante",
+        image: "https://images.unsplash.com/photo-1563379971899-660589a01cf3?q=80&w=1080&auto=format&fit=crop",
+        description: "Explore a rica culinária italiana preparando massas artesanais com os segredos dos melhores chefs. Aprenda a equilibrar sabores, temperos e a preparar do zero receitas clássicas repletas de tradição.",
+        lessons: [
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> Preparação de massa fresca tradicional com sêmola e ovos",
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> Molhos clássicos: Pomodoro rústico, Ragu bolonhesa lento, Pesto genovês",
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> Técnicas de recheio para raviólis e tortelonis",
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> O risoto perfeito: do grão arbóreo à mantecatura ideal"
+        ]
+      },
+      3: {
+        title: "A Arte do Sushi e Culinária Japonesa",
+        category: "Asiática",
+        chef: "Kenji Sato",
+        duration: "40h",
+        difficulty: "Avançado",
+        image: "https://images.unsplash.com/photo-1611143669185-af224c5e3252?q=80&w=1080&auto=format&fit=crop",
+        description: "Uma jornada completa pela alta culinária japonesa. Domine a delicada arte do sushi, o cozimento perfeito do arroz Shari, o manuseio correto das facas, e a seleção e corte preciso de peixes frescos.",
+        lessons: [
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> Lavagem, cozimento e tempero do arroz para sushi (Su e Shari)",
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> Técnicas de corte (Sashimi) de Salmão, Atum e Peixe Branco",
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> Montagem de sushis tradicionais: Hosomaki, Uramaki e Nigiri",
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> Decoração e apresentação profissional de barcas culinárias"
+        ]
+      },
+      4: {
+        title: "Panificação Artesanal e Fermentação Natural",
+        category: "Panificação",
+        chef: "Lucas Mendes",
+        duration: "15h",
+        difficulty: "Iniciante",
+        image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1080&auto=format&fit=crop",
+        description: "Descubra o maravilhoso mundo do pão feito à mão. Aprenda a criar e alimentar o seu fermento natural (levain) e prepare pães rústicos aromáticos com cascas crocantes e miolos super macios.",
+        lessons: [
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> Criação de fermento selvagem (Levain) passo a passo do zero",
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> Técnicas de hidratação, autólise e sobras de massas",
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> Dobras e modelagem de sourdough clássico, baguetes e focaccias",
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> Controle de temperatura na fermentação lenta e técnicas de assamento"
+        ]
+      },
+      5: {
+        title: "Carnes & Churrasco de Nível Premium",
+        category: "Grelhados",
+        chef: "Marcos Assunção",
+        duration: "25h",
+        difficulty: "Intermediário",
+        image: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1080&auto=format&fit=crop",
+        description: "Conheça tudo sobre cortes nobres de carne e prepare o churrasco perfeito. Saiba como selecionar peças de alto padrão, acertar os pontos ideais de grelha e fazer molhos acompanhamentos imperdíveis.",
+        lessons: [
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> Entendimento das fibras de carnes bovinas e cortes nobres (Picanha, Ancho, Chorizo)",
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> Tipos de braseiro, temperatura ideal de grelhas e marinadas",
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> Acertando o ponto: do malpassado ao ponto do chef com segurança",
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> Acompanhamentos finos: Chimichurri clássico, farofas e vinagretes autorais"
+        ]
+      },
+      6: {
+        title: "Cozinha Vegana Criativa e Sustentável",
+        category: "Vegana",
+        chef: "Clara Ramos",
+        duration: "30h",
+        difficulty: "Iniciante",
+        image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1080&auto=format&fit=crop",
+        description: "Aprenda a valorizar legumes, grãos e sementes em receitas veganas saborosas, coloridas e ricas em nutrientes. Perfeito tanto para veganos quanto para quem quer reduzir o consumo de proteína animal com pratos saborosos.",
+        lessons: [
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> Substitutos saudáveis de derivados animais em massas e bolos",
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> Queijos vegetais fermentados artesanalmente em casa",
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> Proteínas vegetais: técnicas saborosas para tofu, tempeh e leguminosas",
+          "<i class='bi bi-check-circle-fill text-warning me-2'></i> Elaboração de sobremesas cremosas veganas sem açúcar refinado"
+        ]
+      }
+    };
+
+    let courseModalInstance = null;
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize Bootstrap Modal
+      courseModalInstance = new bootstrap.Modal(document.getElementById('courseDetailModal'));
+
+      // Check search parameter in URL (triggered from Index page navbar)
+      const urlParams = new URLSearchParams(window.location.search);
+      const searchParam = urlParams.get('search');
+      if (searchParam) {
+        document.getElementById('searchInput').value = searchParam;
+        filterCourses(searchParam);
+      }
+
+      // Input filter event listener
+      document.getElementById('searchInput').addEventListener('keyup', function(e) {
+        filterCourses(e.target.value);
+      });
+
+      // User session setup
+      setupUserSession();
+    });
+
+    // Filtering logic
+    function filterCourses(query) {
+      const cleanQuery = query.toLowerCase().trim();
+      const cards = document.querySelectorAll('.course-card');
+      let matches = 0;
+
+      cards.forEach(card => {
+        const title = card.getAttribute('data-title').toLowerCase();
+        const chef = card.getAttribute('data-chef').toLowerCase();
+        const category = card.getAttribute('data-category').toLowerCase();
+
+        if (title.includes(cleanQuery) || chef.includes(cleanQuery) || category.includes(cleanQuery)) {
+          card.classList.remove('d-none');
+          matches++;
+        } else {
+          card.classList.add('d-none');
+        }
+      });
+
+      const noResultsDiv = document.getElementById('noResults');
+      if (matches === 0) {
+        noResultsDiv.classList.remove('d-none');
+      } else {
+        noResultsDiv.classList.add('d-none');
+      }
+    }
+
+    // Clear search filter
+    function clearSearch() {
+      document.getElementById('searchInput').value = '';
+      filterCourses('');
+    }
+
+    // Open course details in Modal
+    function openCourseModal(courseId) {
+      const course = coursesData[courseId];
+      if (!course) return;
+
+      document.getElementById('modalCourseCategory').textContent = course.category;
+      document.getElementById('modalCourseTitle').textContent = course.title;
+      document.getElementById('modalCourseImage').src = course.image;
+      document.getElementById('modalCourseImage').alt = course.title;
+      document.getElementById('modalCourseChef').textContent = course.chef;
+      document.getElementById('modalCourseDuration').textContent = course.duration;
+      document.getElementById('modalCourseDifficulty').textContent = course.difficulty;
+      document.getElementById('modalCourseDescription').textContent = course.description;
+
+      const lessonsUl = document.getElementById('modalCourseLessons');
+      lessonsUl.innerHTML = '';
+      course.lessons.forEach(lesson => {
+        const li = document.createElement('li');
+        li.className = 'mb-2 d-flex align-items-start';
+        li.innerHTML = lesson;
+        lessonsUl.appendChild(li);
+      });
+
+      courseModalInstance.show();
+    }
+
+    // Matricula e verificação de login
+    function enrollCourse() {
+      const isLogged = localStorage.getItem('userLoggedIn');
+      if (isLogged !== 'true') {
+        courseModalInstance.hide();
+        alert('Você precisa estar logado para se matricular em um curso gratuito.');
+        window.location.href = 'login.html';
+      } else {
+        alert('Matrícula realizada com sucesso! O curso já está disponível no seu painel.');
+        courseModalInstance.hide();
+      }
+    }
+
+    // Setup navbar login state
+    function setupUserSession() {
+      const userSessionArea = document.getElementById('userSessionArea');
+      const isLogged = localStorage.getItem('userLoggedIn');
+      const userEmail = localStorage.getItem('userEmail');
+
+      if (isLogged === 'true' && userEmail) {
+        userSessionArea.innerHTML = `
+          <div class="dropdown">
+            <button class="btn btn-warning dropdown-toggle d-flex align-items-center gap-2 rounded-pill px-3 py-1 shadow-sm" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-circle fs-5"></i>
+              <span class="small d-none d-sm-inline">${userEmail.split('@')[0]}</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2" aria-labelledby="userMenu" style="border-radius:12px;">
+              <li><span class="dropdown-item-text text-muted small">${userEmail}</span></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item d-flex align-items-center gap-2 text-danger" href="#" id="logoutBtn"><i class="bi bi-box-arrow-right"></i> Sair</a></li>
+            </ul>
+          </div>
+        `;
+
+        document.getElementById('logoutBtn').addEventListener('click', function(e) {
+          e.preventDefault();
+          localStorage.removeItem('userLoggedIn');
+          localStorage.removeItem('userEmail');
+          window.location.reload();
+        });
+      }
+    }
+  </script>
+</body>
+</html>
