@@ -7,7 +7,7 @@ public class Main_Socio {
         Dependente d1 = new Dependente("Igor");
         s1.addDependente(d1);
         
-        Dependente d2 =  new Dependente("Ana Lívia");
+        Dependente d2 =  new Dependente("Ana LÃ­via");
         s1.addDependente(d2);
         
         s1.imprimir();

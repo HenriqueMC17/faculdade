@@ -14,6 +14,4 @@ public class Dependente {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    
 }
