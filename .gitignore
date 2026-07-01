@@ -1,4 +1,25 @@
-# Java
+# Java compiler outputs
 bin/
 **/bin/
 *.class
+target/
+*.jar
+*.war
+*.ear
+
+# IDE specific files
+.metadata/
+.settings/
+.project
+.classpath
+.idea/
+*.iml
+*.iws
+.vscode/
+
+# Env & secrets files
+.env
+.env.local
+.env.*
+*.pem
+*.key
