@@ -11,9 +11,9 @@ O objetivo deste ecossistema é consolidar o conhecimento teórico da faculdade 
 
 ### 📂 Estrutura de Domínios
 
-- **`banco-de-dados/`**: Engenharia de Persistência, Otimização de Queries (Performance by Default) e Modelagem E-R.
-- **`linguagens-de-programacao/`**: Exploração de paradigmas (Imperativo, Funcional, Reativo) com foco em Tipagem Estrita.
-- **`lógica-algoritmos-e-programação-orientada-a-objetos/`**: Aplicação rigorosa de **SOLID**, **Design Patterns** e **Clean Code**.
+- **`banco-de-dados/`**: Engenharia de Persistência, Otimização de Queries (Performance by Default) e Modelagem E-R. Para aprofundamento em governança relacional e transações ACID, consulte o [Manual de Governança Técnica e Padrões de Engenharia](file:///c:/Dev/Docs/Essential%20Developer%20Resource%20Directory/Manual%20de%20Governança%20Técnica%20e%20Padrões%20de%20Engenharia.md).
+- **`linguagens-de-programacao/`**: Exploração de paradigmas (Imperativo, Funcional, Reativo) com foco em Tipagem Estrita. Veja a comparação detalhada de modelos de execução e concorrência no [Relatório de Decisão Arquitetural (ADR) - Stacks Backend](file:///c:/Dev/Docs/Essential%20Developer%20Resource%20Directory/Relatório%20de%20Decisão%20Arquitetural%20(ADR)_%20Avaliação%20Comparativa%20de%20Stacks%20Backend%20(Python,%20Node.js,%20PHP).md).
+- **`lógica-algoritmos-e-programação-orientada-a-objetos/`**: Aplicação rigorosa de **SOLID**, **Design Patterns** e **Clean Code**, fundamentada pelas práticas descritas no [Caderno de Lógica Aplicada](file:///c:/Dev/Docs/Essential%20Developer%20Resource%20Directory/Caderno%20de%20Lógica%20Aplicada_%20Transformando%20Problemas%20em%20Soluções.md) e [Desmistificando o Backend](file:///c:/Dev/Docs/Essential%20Developer%20Resource%20Directory/Desmistificando%20o%20Backend_%20Um%20Guia%20para%20sua%20Jornada%20Digital.md).
   - **`exercicios/`**:
     - **`Aula_2/`**: Exemplo de login e operadores básicos.
     - **`Aula_7/`**: Associações de classes complexas (`Pessoa`, `Socio`, `Dependente`, `ContaComum`, `Funcionario`).
