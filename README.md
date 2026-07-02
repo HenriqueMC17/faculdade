@@ -17,9 +17,10 @@ O objetivo deste ecossistema é consolidar o conhecimento teórico da faculdade 
   - **`exercicios/`**:
     - **`Aula_2/`**: Exemplo de login e operadores básicos.
     - **`Aula_7/`**: Associações de classes complexas (`Pessoa`, `Socio`, `Dependente`, `ContaComum`, `Funcionario`).
-    - **`dao/`**: Padrão Data Access Object genérico com JPA/EntityManager.
     - **`reports/`**: Geração de relatórios PDF estruturados com iTextPDF.
-    - **`[34 Exercícios Core]/`**: Implementações robustas em Java de algoritmos clássicos, jogos (como Jogo da Velha), simulações (álbum de figurinhas, oficina de poções) e conceitos fundamentais de POO (polimorfismo de veículos/reprodutores de mídias, encapsulamento, herança).
+    - **`[35 Exercícios Core]/`**: Implementações robustas em Java de algoritmos clássicos, jogos (como Jogo da Velha), simulações (álbum de figurinhas, oficina de poções) e conceitos fundamentais de POO (polimorfismo de veículos/reprodutores de mídias, encapsulamento, herança).
+  - **`persistencia-dados-jpa/`**:
+    - **`dao/`**: Padrão Data Access Object genérico com JPA/EntityManager para conexão com banco de dados.
 
 ---
 
