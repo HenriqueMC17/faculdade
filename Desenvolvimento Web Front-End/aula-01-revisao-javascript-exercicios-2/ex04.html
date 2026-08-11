@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 4 — Ocultar / Mostrar Parágrafo</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+    .card { max-width: 600px; width: 100%; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Exercício 4 — Ocultar e Mostrar Parágrafo</h2>
+    <p class="description">Clique no botão para alternar a visibilidade do parágrafo de texto.</p>
+    
+    <div style="margin-bottom: 20px;">
+      <button type="button" id="btn-toggle" class="btn btn-primary" onclick="toggleParagrafo()">Ocultar Parágrafo</button>
+    </div>
+
+    <div class="paragraph-box">
+      <p id="paragrafo-texto">
+        Este é um parágrafo de exemplo que pode ser ocultado e exibido novamente ao clicar no botão acima. O JavaScript altera o estilo CSS <code>display</code> entre 'none' e 'block'.
+      </p>
+    </div>
+
+    <p style="text-align: center; margin-top: 25px;"><a href="index.html">← Voltar ao Portal Central</a></p>
+  </div>
+
+  <script>
+    function toggleParagrafo() {
+      const p = document.getElementById('paragrafo-texto');
+      const btn = document.getElementById('btn-toggle');
+      if (p.style.display === 'none') {
+        p.style.display = 'block';
+        btn.textContent = 'Ocultar Parágrafo';
+        btn.className = 'btn btn-primary';
+      } else {
+        p.style.display = 'none';
+        btn.textContent = 'Mostrar Parágrafo';
+        btn.className = 'btn btn-success';
+      }
+    }
+  </script>
+</body>
+</html>

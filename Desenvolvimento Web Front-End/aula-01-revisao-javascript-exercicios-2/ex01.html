@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 1 — Troca de Cor de Fundo por Botões</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+    .card { max-width: 600px; width: 100%; }
+  </style>
+</head>
+<body id="page-bg">
+  <div class="card">
+    <h2>Exercício 1 — Troca de Cor por Botões</h2>
+    <p class="description">Clique em um dos botões abaixo para alterar a cor do plano de fundo da página para vermelho, verde, azul ou amarelo.</p>
+    
+    <form onsubmit="event.preventDefault();" style="text-align: center;">
+      <div class="button-group" style="justify-content: center;">
+        <button type="button" class="btn btn-red" onclick="alterarCorPagina('vermelho')">Vermelho</button>
+        <button type="button" class="btn btn-green" onclick="alterarCorPagina('verde')">Verde</button>
+        <button type="button" class="btn btn-blue" onclick="alterarCorPagina('azul')">Azul</button>
+        <button type="button" class="btn btn-yellow" onclick="alterarCorPagina('amarelo')">Amarelo</button>
+      </div>
+    </form>
+    <br>
+    <p style="text-align: center;"><a href="index.html">← Voltar ao Portal Central</a></p>
+  </div>
+
+  <script>
+    const CORES = { vermelho: '#ef4444', verde: '#10b981', azul: '#3b82f6', amarelo: '#f59e0b' };
+    function alterarCorPagina(cor) {
+      document.body.style.backgroundColor = CORES[cor] || '';
+    }
+  </script>
+</body>
+</html>

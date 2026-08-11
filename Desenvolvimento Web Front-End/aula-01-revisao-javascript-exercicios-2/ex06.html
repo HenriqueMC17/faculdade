@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercícios 6, 7 e 8 — Estilização e Manipulação de Texto</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+    .card { max-width: 750px; width: 100%; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Exercícios 6, 7 e 8 — Manipulação de Texto</h2>
+    <p class="description">
+      <strong>Ex 6:</strong> Trocar a cor da fonte (branco ↔ preto) e cor do fundo (branco ↔ preto).<br>
+      <strong>Ex 7:</strong> Botões + e - para alterar o tamanho da fonte.<br>
+      <strong>Ex 8:</strong> Converter o texto para MAIÚSCULA e minúscula.
+    </p>
+
+    <!-- Toolbar de Controles -->
+    <div class="toolbar">
+      <div class="toolbar-group">
+        <span class="toolbar-label">Fonte (Ex 6):</span>
+        <button type="button" class="btn btn-sm btn-dark" onclick="mudarCorFonte('black')">Preto</button>
+        <button type="button" class="btn btn-sm btn-light" onclick="mudarCorFonte('white')">Branco</button>
+      </div>
+
+      <div class="toolbar-group">
+        <span class="toolbar-label">Fundo (Ex 6):</span>
+        <button type="button" class="btn btn-sm btn-dark" onclick="mudarCorFundo('black')">Fundo Preto</button>
+        <button type="button" class="btn btn-sm btn-light" onclick="mudarCorFundo('white')">Fundo Branco</button>
+      </div>
+
+      <div class="toolbar-group">
+        <span class="toolbar-label">Tamanho (Ex 7):</span>
+        <button type="button" class="btn btn-sm btn-primary" onclick="alterarTamanho(2)">+ Aumentar</button>
+        <button type="button" class="btn btn-sm btn-secondary" onclick="alterarTamanho(-2)">- Diminuir</button>
+        <span class="font-size-badge" id="lbl-size">18px</span>
+      </div>
+
+      <div class="toolbar-group">
+        <span class="toolbar-label">Caixa (Ex 8):</span>
+        <button type="button" class="btn btn-sm btn-outline" onclick="mudarCaixa('upper')">MAIÚSCULA</button>
+        <button type="button" class="btn btn-sm btn-outline" onclick="mudarCaixa('lower')">minúscula</button>
+      </div>
+    </div>
+
+    <!-- Parágrafo com Div -->
+    <div id="caixa-texto" class="text-display-box" style="background-color: white;">
+      <p id="paragrafo" style="color: black; font-size: 18px; margin: 0;">
+        Este parágrafo de texto é o alvo dos Exercícios 6, 7 e 8. Utilize os botões da barra de ferramentas acima para ajustar a cor da fonte, a cor do plano de fundo da div, a escala do texto e a caixa dos caracteres.
+      </p>
+    </div>
+
+    <p style="text-align: center; margin-top: 25px;"><a href="index.html">← Voltar ao Portal Central</a></p>
+  </div>
+
+  <script>
+    let tam = 18;
+    function mudarCorFonte(cor) { document.getElementById('paragrafo').style.color = cor; }
+    function mudarCorFundo(cor) { document.getElementById('caixa-texto').style.backgroundColor = cor; }
+    function alterarTamanho(d) {
+      tam += d;
+      if(tam < 10) tam = 10;
+      if(tam > 48) tam = 48;
+      document.getElementById('paragrafo').style.fontSize = tam + 'px';
+      document.getElementById('lbl-size').textContent = tam + 'px';
+    }
+    function mudarCaixa(t) {
+      const p = document.getElementById('paragrafo');
+      p.textContent = (t === 'upper') ? p.textContent.toUpperCase() : p.textContent.toLowerCase();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 3 — Troca de Cor por Select e RadioButton</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+    .card { max-width: 650px; width: 100%; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Exercício 3 — Seleção de Cor por Select / RadioButton</h2>
+    <p class="description">Selecione uma cor na lista dropdown ou nos botões de rádio para alterar a cor do plano de fundo da página.</p>
+    
+    <div class="form-grid">
+      <div class="sub-card">
+        <h3>Lista Dropdown (&lt;select&gt;)</h3>
+        <select id="select-cor" class="form-control" onchange="alterarCor(this.value)">
+          <option value="">-- Selecione a cor --</option>
+          <option value="vermelho">Vermelho</option>
+          <option value="verde">Verde</option>
+          <option value="azul">Azul</option>
+          <option value="amarelo">Amarelo</option>
+        </select>
+      </div>
+
+      <div class="sub-card">
+        <h3>Opção RadioButton</h3>
+        <div class="radio-group">
+          <label class="radio-label"><input type="radio" name="radio-cor" value="vermelho" onchange="alterarCor('vermelho')"> Vermelho</label>
+          <label class="radio-label"><input type="radio" name="radio-cor" value="verde" onchange="alterarCor('verde')"> Verde</label>
+          <label class="radio-label"><input type="radio" name="radio-cor" value="azul" onchange="alterarCor('azul')"> Azul</label>
+          <label class="radio-label"><input type="radio" name="radio-cor" value="amarelo" onchange="alterarCor('amarelo')"> Amarelo</label>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+      <button type="button" class="btn btn-secondary" onclick="resetCor()">Restaurar Cor Original</button>
+    </div>
+
+    <p style="text-align: center; margin-top: 20px;"><a href="index.html">← Voltar ao Portal Central</a></p>
+  </div>
+
+  <script>
+    const CORES = { vermelho: '#ef4444', verde: '#10b981', azul: '#3b82f6', amarelo: '#f59e0b' };
+    function alterarCor(cor) { document.body.style.backgroundColor = CORES[cor] || ''; }
+    function resetCor() {
+      document.body.style.backgroundColor = '';
+      document.getElementById('select-cor').value = '';
+      document.querySelectorAll('input[name="radio-cor"]').forEach(r => r.checked = false);
+    }
+  </script>
+</body>
+</html>

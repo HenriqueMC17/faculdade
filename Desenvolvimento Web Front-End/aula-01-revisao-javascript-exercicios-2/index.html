@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 01 - Revisão JavaScript - Exercícios 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-content">
+        <h1>Exercícios de JavaScript - Revisão 2</h1>
+        <p class="subtitle">Prof. Fabrício Tonetto Londero — Linguagens de Programação</p>
+      </div>
+      <div class="header-actions">
+        <a href="#standalone-links" class="btn-standalone-link">📄 Arquivos Individuais</a>
+      </div>
+    </header>
+
+    <!-- Navegação de Exercícios -->
+    <nav class="exercise-nav" aria-label="Navegação dos Exercícios">
+      <button class="nav-tab active" data-tab="ex1">Ex 1: Cores por Botões</button>
+      <button class="nav-tab" data-tab="ex2">Ex 2: Cores por Links</button>
+      <button class="nav-tab" data-tab="ex3">Ex 3: Cores por Select/Radio</button>
+      <button class="nav-tab" data-tab="ex4">Ex 4: Ocultar/Mostrar</button>
+      <button class="nav-tab" data-tab="ex5">Ex 5: Checkboxes</button>
+      <button class="nav-tab" data-tab="ex6">Ex 6, 7 & 8: Estilização de Texto</button>
+      <button class="nav-tab" data-tab="ex9">Ex 9: Cadastro de Usuário</button>
+      <button class="nav-tab" data-tab="ex10">Ex 10: Cadastro de Cliente</button>
+    </nav>
+
+    <!-- Conteúdo dos Exercícios -->
+    <main class="exercise-content">
+      
+      <!-- Exercício 1 -->
+      <section id="ex1" class="tab-panel active">
+        <div class="card">
+          <h2>Exercício 1 — Alterar Cor de Fundo por Botões</h2>
+          <p class="description">Crie um formulário com 4 botões que, ao clicar em cada um, altere a cor do plano de fundo da página para vermelho, verde, azul e amarelo, respectivamente.</p>
+          
+          <div class="demo-area" id="bg-target-ex1">
+            <form class="ex-form" onsubmit="event.preventDefault();">
+              <label class="form-label">Selecione a cor de fundo:</label>
+              <div class="button-group">
+                <button type="button" class="btn btn-red" onclick="alterarCorEx1('vermelho')">Vermelho</button>
+                <button type="button" class="btn btn-green" onclick="alterarCorEx1('verde')">Verde</button>
+                <button type="button" class="btn btn-blue" onclick="alterarCorEx1('azul')">Azul</button>
+                <button type="button" class="btn btn-yellow" onclick="alterarCorEx1('amarelo')">Amarelo</button>
+                <button type="button" class="btn btn-secondary" onclick="resetCorEx1()">Restaurar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Exercício 2 -->
+      <section id="ex2" class="tab-panel">
+        <div class="card">
+          <h2>Exercício 2 — Alterar Cor de Fundo por Hover em Links</h2>
+          <p class="description">Crie uma página com 4 links (tag <code>&lt;a&gt;</code>), cada um representando o nome de uma cor, que, utilizando o evento <code>onmouseover</code> altere a cor do plano de fundo para a cor correspondente.</p>
+          
+          <div class="demo-area" id="bg-target-ex2">
+            <div class="links-container">
+              <span class="instruction-text">Passe o mouse sobre os links abaixo:</span>
+              <div class="link-group">
+                <a href="javascript:void(0)" class="color-link link-red" onmouseover="alterarCorEx2('vermelho')" onmouseout="restaurarCorEx2()">Vermelho</a>
+                <a href="javascript:void(0)" class="color-link link-green" onmouseover="alterarCorEx2('verde')" onmouseout="restaurarCorEx2()">Verde</a>
+                <a href="javascript:void(0)" class="color-link link-blue" onmouseover="alterarCorEx2('azul')" onmouseout="restaurarCorEx2()">Azul</a>
+                <a href="javascript:void(0)" class="color-link link-yellow" onmouseover="alterarCorEx2('amarelo')" onmouseout="restaurarCorEx2()">Amarelo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Exercício 3 -->
+      <section id="ex3" class="tab-panel">
+        <div class="card">
+          <h2>Exercício 3 — Alterar Cor de Fundo por Select / RadioButton</h2>
+          <p class="description">Crie uma página com uma lista (select ou radio buttons) com 4 opções de cores. Ao selecionar uma opção de cor, altere o plano de fundo da página para a cor específica.</p>
+          
+          <div class="demo-area" id="bg-target-ex3">
+            <div class="form-grid">
+              <!-- Opção Select -->
+              <div class="sub-card">
+                <h3>Opção A: Menu Dropdown (&lt;select&gt;)</h3>
+                <div class="form-group">
+                  <label for="select-cor">Escolha uma cor:</label>
+                  <select id="select-cor" class="form-control" onchange="alterarCorEx3Select(this.value)">
+                    <option value="">-- Selecione uma cor --</option>
+                    <option value="vermelho">Vermelho</option>
+                    <option value="verde">Verde</option>
+                    <option value="azul">Azul</option>
+                    <option value="amarelo">Amarelo</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Opção Radio Button -->
+              <div class="sub-card">
+                <h3>Opção B: Botões de Rádio (Radio Buttons)</h3>
+                <div class="radio-group">
+                  <label class="radio-label">
+                    <input type="radio" name="radio-cor" value="vermelho" onchange="alterarCorEx3Radio('vermelho')"> Vermelho
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="radio-cor" value="verde" onchange="alterarCorEx3Radio('verde')"> Verde
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="radio-cor" value="azul" onchange="alterarCorEx3Radio('azul')"> Azul
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="radio-cor" value="amarelo" onchange="alterarCorEx3Radio('amarelo')"> Amarelo
+                  </label>
+                </div>
+              </div>
+            </div>
+            
+            <div style="margin-top: 15px; text-align: center;">
+              <button type="button" class="btn btn-secondary" onclick="resetCorEx3()">Restaurar Fundo</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Exercício 4 -->
+      <section id="ex4" class="tab-panel">
+        <div class="card">
+          <h2>Exercício 4 — Ocultar e Mostrar Parágrafo</h2>
+          <p class="description">Crie um parágrafo (<code>&lt;p&gt;</code>) com um texto como conteúdo. Adicione um botão que, ao ser clicado, oculte ou mostre o texto do parágrafo.</p>
+          
+          <div class="demo-area">
+            <div class="controls-bar">
+              <button type="button" id="btn-toggle-ex4" class="btn btn-primary" onclick="toggleParagrafoEx4()">
+                Ocultar Parágrafo
+              </button>
+            </div>
+
+            <div class="paragraph-box">
+              <p id="paragrafo-ex4" class="content-paragraph">
+                "O JavaScript é uma linguagem de programação interpretada estruturada, de script em alto nível com tipagem dinâmica fraca e multiparadigma. Juntamente com HTML e CSS, o JavaScript é uma das três principais tecnologias da World Wide Web."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Exercício 5 -->
+      <section id="ex5" class="tab-panel">
+        <div class="card">
+          <h2>Exercício 5 — Validação de Botão por Checkbox</h2>
+          <p class="description">Crie um formulário de seleção de itens com checkbox. O formulário deve possuir um botão desabilitado. O botão só se torna clicável quando tiver pelo menos 2 checkboxes marcados.</p>
+          
+          <div class="demo-area">
+            <form id="form-checkboxes-ex5" class="checkbox-form">
+              <span class="instruction-text">Selecione pelo menos 2 itens para ativar o botão de envio:</span>
+              
+              <div class="checkbox-list">
+                <label class="checkbox-item">
+                  <input type="checkbox" class="ex5-chk" onchange="validarCheckboxesEx5()">
+                  <span>Item 1 — Desenvolvimento Web Frontend</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" class="ex5-chk" onchange="validarCheckboxesEx5()">
+                  <span>Item 2 — Lógica de Programação e Algoritmos</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" class="ex5-chk" onchange="validarCheckboxesEx5()">
+                  <span>Item 3 — Banco de Dados Relacional</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" class="ex5-chk" onchange="validarCheckboxesEx5()">
+                  <span>Item 4 — Engenharia de Software</span>
+                </label>
+              </div>
+
+              <div class="status-counter" id="status-counter-ex5">
+                Itens selecionados: <strong id="chk-count-ex5">0</strong> / 2 mínimos necessários
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" id="btn-submit-ex5" class="btn btn-primary" disabled onclick="enviarFormEx5(event)">
+                  Enviar Seleção
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Exercícios 6, 7 e 8 Integrados -->
+      <section id="ex6" class="tab-panel">
+        <div class="card">
+          <h2>Exercícios 6, 7 e 8 — Manipulação Estilística de Texto</h2>
+          <p class="description">
+            <strong>Ex 6:</strong> Botões para alternar a cor da fonte (branco ↔ preto) e cor do fundo (branco ↔ preto).<br>
+            <strong>Ex 7:</strong> Botões <code>+</code> e <code>-</code> para alterar o tamanho da fonte.<br>
+            <strong>Ex 8:</strong> Botões para transformar o texto em MAIÚSCULA e minúscula.
+          </p>
+
+          <div class="demo-area">
+            <!-- Painel de Controles -->
+            <div class="toolbar">
+              <!-- Exercício 6 -->
+              <div class="toolbar-group">
+                <span class="toolbar-label">Cor da Fonte (Ex 6):</span>
+                <button type="button" class="btn btn-sm btn-dark" onclick="alterarCorFonteEx6('black')">Preto</button>
+                <button type="button" class="btn btn-sm btn-light" onclick="alterarCorFonteEx6('white')">Branco</button>
+              </div>
+
+              <div class="toolbar-group">
+                <span class="toolbar-label">Fundo do Texto (Ex 6):</span>
+                <button type="button" class="btn btn-sm btn-dark" onclick="alterarFundoTextoEx6('black')">Fundo Preto</button>
+                <button type="button" class="btn btn-sm btn-light" onclick="alterarFundoTextoEx6('white')">Fundo Branco</button>
+              </div>
+
+              <!-- Exercício 7 -->
+              <div class="toolbar-group">
+                <span class="toolbar-label">Tamanho da Fonte (Ex 7):</span>
+                <button type="button" class="btn btn-sm btn-primary" onclick="alterarTamanhoFonteEx7(2)">+ Aumentar</button>
+                <button type="button" class="btn btn-sm btn-secondary" onclick="alterarTamanhoFonteEx7(-2)">- Diminuir</button>
+                <span class="font-size-badge" id="badge-font-size">18px</span>
+              </div>
+
+              <!-- Exercício 8 -->
+              <div class="toolbar-group">
+                <span class="toolbar-label">Caixa do Texto (Ex 8):</span>
+                <button type="button" class="btn btn-sm btn-outline" onclick="transformarTextoEx8('upper')">MAIÚSCULA</button>
+                <button type="button" class="btn btn-sm btn-outline" onclick="transformarTextoEx8('lower')">minúscula</button>
+              </div>
+            </div>
+
+            <!-- Parágrafo Alvo -->
+            <div id="container-texto-ex6" class="text-display-box" style="background-color: white; color: black;">
+              <p id="paragrafo-ex6" style="font-size: 18px; margin: 0;">
+                Este é o parágrafo de teste utilizado para os Exercícios 6, 7 e 8. Você pode alterar a cor da fonte, a cor do fundo da div, aumentar ou diminuir o tamanho da letra e converter todo o texto para maiúsculas ou minúsculas dinamicamente através do JavaScript.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Exercício 9 -->
+      <section id="ex9" class="tab-panel">
+        <div class="card">
+          <h2>Exercício 9 — Form de Cadastro de Usuário com Validação</h2>
+          <p class="description">Formulário com Login, Senha e Confirmar Senha. A submissão só é permitida se todos os campos estiverem preenchidos, a senha e confirmação forem iguais e a senha possuir entre 6 e 10 caracteres.</p>
+          
+          <div class="demo-area">
+            <form id="form-usuario-ex9" class="custom-form" onsubmit="validarUsuarioEx9(event)">
+              <div id="msg-feedback-ex9" class="feedback-message" style="display: none;"></div>
+
+              <div class="form-group">
+                <label for="ex9-login">Login / Usuário: <span class="required">*</span></label>
+                <input type="text" id="ex9-login" class="form-control" placeholder="Digite seu login" required>
+              </div>
+
+              <div class="form-group">
+                <label for="ex9-senha">Senha (6 a 10 caracteres): <span class="required">*</span></label>
+                <input type="password" id="ex9-senha" class="form-control" placeholder="Digite sua senha" required minlength="6" maxlength="10">
+              </div>
+
+              <div class="form-group">
+                <label for="ex9-confirmar">Confirmar Senha: <span class="required">*</span></label>
+                <input type="password" id="ex9-confirmar" class="form-control" placeholder="Confirme sua senha" required minlength="6" maxlength="10">
+              </div>
+
+              <button type="submit" class="btn btn-success btn-block">Cadastrar Usuário</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Exercício 10 -->
+      <section id="ex10" class="tab-panel">
+        <div class="card">
+          <h2>Exercício 10 — Cadastro de Cliente com Validação Condicional</h2>
+          <p class="description">Formulário de cadastro. Ativa CPF e Data de Nascimento apenas se Pessoa Física estiver selecionado, e CNPJ no caso de Pessoa Jurídica. Restringe digitação apenas para números nos campos CEP, Data de Nascimento, CPF e CNPJ.</p>
+          
+          <div class="demo-area">
+            <form id="form-cliente-ex10" class="custom-form" onsubmit="validarClienteEx10(event)">
+              <div id="msg-feedback-ex10" class="feedback-message" style="display: none;"></div>
+
+              <div class="form-row">
+                <div class="form-group col-full">
+                  <label for="ex10-nome">Nome Completo / Razão Social: <span class="required">*</span></label>
+                  <input type="text" id="ex10-nome" class="form-control" required placeholder="Digite o nome completo">
+                </div>
+              </div>
+
+              <!-- Tipo de Pessoa (Radio) -->
+              <div class="form-group">
+                <label>Tipo de Pessoa: <span class="required">*</span></label>
+                <div class="radio-inline-group">
+                  <label class="radio-label">
+                    <input type="radio" name="tipo-pessoa" value="fisica" checked onchange="alternarTipoPessoaEx10('fisica')"> Pessoa Física
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="tipo-pessoa" value="juridica" onchange="alternarTipoPessoaEx10('juridica')"> Pessoa Jurídica
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <!-- CPF -->
+                <div class="form-group col-half">
+                  <label for="ex10-cpf">CPF (Somente Números):</label>
+                  <input type="text" id="ex10-cpf" class="form-control" placeholder="000.000.000-00" oninput="somenteNumeros(this)">
+                </div>
+
+                <!-- CNPJ -->
+                <div class="form-group col-half">
+                  <label for="ex10-cnpj">CNPJ (Somente Números):</label>
+                  <input type="text" id="ex10-cnpj" class="form-control" placeholder="00.000.000/0001-00" disabled oninput="somenteNumeros(this)">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <!-- Data de Nascimento -->
+                <div class="form-group col-half">
+                  <label for="ex10-nascimento">Data de Nascimento (DDMMAAAA - Apenas Números):</label>
+                  <input type="text" id="ex10-nascimento" class="form-control" placeholder="Ex: 15081995" oninput="somenteNumeros(this)" maxlength="8">
+                </div>
+
+                <!-- CEP -->
+                <div class="form-group col-half">
+                  <label for="ex10-cep">CEP (Somente Números): <span class="required">*</span></label>
+                  <input type="text" id="ex10-cep" class="form-control" placeholder="Ex: 97000000" required oninput="somenteNumeros(this)" maxlength="8">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-full">
+                  <label for="ex10-endereco">Endereço: <span class="required">*</span></label>
+                  <input type="text" id="ex10-endereco" class="form-control" required placeholder="Rua, Número, Bairro, Cidade">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-half">
+                  <label for="ex10-telefone">Telefone:</label>
+                  <input type="text" id="ex10-telefone" class="form-control" placeholder="(00) 00000-0000" oninput="somenteNumeros(this)">
+                </div>
+
+                <div class="form-group col-half">
+                  <label for="ex10-email">E-mail: <span class="required">*</span></label>
+                  <input type="email" id="ex10-email" class="form-control" required placeholder="exemplo@email.com">
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-success btn-block">Salvar Cadastro de Cliente</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção de Arquivos Autônomos -->
+      <section id="standalone-links" class="standalone-section">
+        <div class="card">
+          <h2>📄 Páginas Autônomas dos Exercícios</h2>
+          <p class="description">Você também pode acessar as páginas independentes criadas individualmente para cada exercício:</p>
+          <div class="standalone-grid">
+            <a href="ex01.html" class="standalone-card"><strong>Exercício 1</strong><span>Cores por Botões</span></a>
+            <a href="ex02.html" class="standalone-card"><strong>Exercício 2</strong><span>Cores por Hover Links</span></a>
+            <a href="ex03.html" class="standalone-card"><strong>Exercício 3</strong><span>Cores por Select/Radio</span></a>
+            <a href="ex04.html" class="standalone-card"><strong>Exercício 4</strong><span>Ocultar/Mostrar Parágrafo</span></a>
+            <a href="ex05.html" class="standalone-card"><strong>Exercício 5</strong><span>Checkboxes e Botão</span></a>
+            <a href="ex06.html" class="standalone-card"><strong>Exercícios 6, 7 & 8</strong><span>Estilização e Texto</span></a>
+            <a href="ex09.html" class="standalone-card"><strong>Exercício 9</strong><span>Formulário Usuário</span></a>
+            <a href="ex10.html" class="standalone-card"><strong>Exercício 10</strong><span>Cadastro de Cliente</span></a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="app-footer">
+      <p>Desenvolvido para a disciplina de Linguagens de Programação — Faculdade</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

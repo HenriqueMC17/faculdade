@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 5 — Validação de Botão por Checkbox</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+    .card { max-width: 600px; width: 100%; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Exercício 5 — Habilitar Botão com 2 Checkboxes Marcados</h2>
+    <p class="description">O botão inicia desabilitado. Ele só se tornará clicável quando pelo menos 2 checkboxes estiverem marcados.</p>
+    
+    <form id="form-chk" onsubmit="event.preventDefault(); alert('Submetido!');">
+      <div class="checkbox-list">
+        <label class="checkbox-item"><input type="checkbox" class="chk-item" onchange="validar()"> <span>Opção 1 — Item A</span></label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-item" onchange="validar()"> <span>Opção 2 — Item B</span></label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-item" onchange="validar()"> <span>Opção 3 — Item C</span></label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-item" onchange="validar()"> <span>Opção 4 — Item D</span></label>
+      </div>
+
+      <p class="status-counter">Marcados: <strong id="qtd-marcados">0</strong> / 2 requeridos</p>
+
+      <button type="submit" id="btn-enviar" class="btn btn-primary" disabled>Enviar Seleção</button>
+    </form>
+
+    <p style="text-align: center; margin-top: 25px;"><a href="index.html">← Voltar ao Portal Central</a></p>
+  </div>
+
+  <script>
+    function validar() {
+      const chks = document.querySelectorAll('.chk-item');
+      const btn = document.getElementById('btn-enviar');
+      const counter = document.getElementById('qtd-marcados');
+      let count = 0;
+      chks.forEach(c => { if(c.checked) count++; });
+      counter.textContent = count;
+      btn.disabled = (count < 2);
+    }
+  </script>
+</body>
+</html>

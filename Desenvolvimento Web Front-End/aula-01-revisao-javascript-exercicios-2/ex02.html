@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 2 — Troca de Cor por Hover em Links</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+    .card { max-width: 600px; width: 100%; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Exercício 2 — Troca de Cor por Links (onmouseover)</h2>
+    <p class="description">Passe o mouse (onmouseover) sobre os links abaixo para alterar a cor do plano de fundo da página.</p>
+    
+    <div class="link-group" style="justify-content: center; margin: 25px 0;">
+      <a href="javascript:void(0)" class="color-link link-red" onmouseover="alterarCor('vermelho')" onmouseout="restaurarCor()">Vermelho</a>
+      <a href="javascript:void(0)" class="color-link link-green" onmouseover="alterarCor('verde')" onmouseout="restaurarCor()">Verde</a>
+      <a href="javascript:void(0)" class="color-link link-blue" onmouseover="alterarCor('azul')" onmouseout="restaurarCor()">Azul</a>
+      <a href="javascript:void(0)" class="color-link link-yellow" onmouseover="alterarCor('amarelo')" onmouseout="restaurarCor()">Amarelo</a>
+    </div>
+
+    <p style="text-align: center;"><a href="index.html">← Voltar ao Portal Central</a></p>
+  </div>
+
+  <script>
+    const CORES = { vermelho: '#ef4444', verde: '#10b981', azul: '#3b82f6', amarelo: '#f59e0b' };
+    function alterarCor(cor) { document.body.style.backgroundColor = CORES[cor] || ''; }
+    function restaurarCor() { document.body.style.backgroundColor = ''; }
+  </script>
+</body>
+</html>

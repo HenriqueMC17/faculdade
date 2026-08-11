@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 10 — Cadastro de Cliente Completo</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+    .card { max-width: 700px; width: 100%; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Exercício 10 — Cadastro de Cliente</h2>
+    <p class="description">Formulário condicional. Ativa CPF e Data de Nascimento se Pessoa Física, e CNPJ se Pessoa Jurídica. Permite apenas números nos campos numéricos.</p>
+    
+    <form class="custom-form" onsubmit="validarForm(event)">
+      <div id="msg" class="feedback-message" style="display: none;"></div>
+
+      <div class="form-group">
+        <label for="nome">Nome: <span class="required">*</span></label>
+        <input type="text" id="nome" class="form-control" placeholder="Nome completo ou Razão Social" required>
+      </div>
+
+      <div class="form-group">
+        <label>Pessoa: <span class="required">*</span></label>
+        <div class="radio-inline-group">
+          <label class="radio-label"><input type="radio" name="pessoa" value="fisica" checked onchange="alternarPessoa('fisica')"> Física</label>
+          <label class="radio-label"><input type="radio" name="pessoa" value="juridica" onchange="alternarPessoa('juridica')"> Jurídica</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-half">
+          <label for="cpf">CPF (Apenas números):</label>
+          <input type="text" id="cpf" class="form-control" placeholder="CPF" oninput="somenteNumeros(this)">
+        </div>
+
+        <div class="form-group col-half">
+          <label for="cnpj">CNPJ (Apenas números):</label>
+          <input type="text" id="cnpj" class="form-control" placeholder="CNPJ" disabled oninput="somenteNumeros(this)">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-half">
+          <label for="nascimento">Data de Nascimento (Apenas números):</label>
+          <input type="text" id="nascimento" class="form-control" placeholder="DDMMAAAA" oninput="somenteNumeros(this)" maxlength="8">
+        </div>
+
+        <div class="form-group col-half">
+          <label for="cep">CEP (Apenas números): <span class="required">*</span></label>
+          <input type="text" id="cep" class="form-control" placeholder="CEP" oninput="somenteNumeros(this)" maxlength="8" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-full">
+          <label for="endereco">Endereço: <span class="required">*</span></label>
+          <input type="text" id="endereco" class="form-control" placeholder="Endereço completo" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-half">
+          <label for="telefone">Telefone:</label>
+          <input type="text" id="telefone" class="form-control" placeholder="Telefone" oninput="somenteNumeros(this)">
+        </div>
+
+        <div class="form-group col-half">
+          <label for="email">E-mail: <span class="required">*</span></label>
+          <input type="email" id="email" class="form-control" placeholder="email@dominio.com" required>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success btn-block">Salvar Cadastro</button>
+    </form>
+
+    <p style="text-align: center; margin-top: 25px;"><a href="index.html">← Voltar ao Portal Central</a></p>
+  </div>
+
+  <script>
+    function somenteNumeros(el) {
+      el.value = el.value.replace(/\D/g, '');
+    }
+
+    function alternarPessoa(tipo) {
+      const cpf = document.getElementById('cpf');
+      const cnpj = document.getElementById('cnpj');
+      const nascimento = document.getElementById('nascimento');
+
+      if (tipo === 'fisica') {
+        cpf.disabled = false;
+        nascimento.disabled = false;
+        cnpj.disabled = true;
+        cnpj.value = '';
+      } else {
+        cnpj.disabled = false;
+        cpf.disabled = true;
+        cpf.value = '';
+        nascimento.disabled = true;
+        nascimento.value = '';
+      }
+    }
+
+    function validarForm(e) {
+      e.preventDefault();
+      const msg = document.getElementById('msg');
+      const tipo = document.querySelector('input[name="pessoa"]:checked').value;
+      const nome = document.getElementById('nome').value.trim();
+
+      if (tipo === 'fisica' && (!document.getElementById('cpf').value || !document.getElementById('nascimento').value)) {
+        msg.textContent = 'Erro: Para Pessoa Física, CPF e Data de Nascimento são obrigatórios.';
+        msg.className = 'feedback-message error';
+        msg.style.display = 'block';
+        return;
+      }
+
+      if (tipo === 'juridica' && !document.getElementById('cnpj').value) {
+        msg.textContent = 'Erro: Para Pessoa Jurídica, o CNPJ é obrigatório.';
+        msg.className = 'feedback-message error';
+        msg.style.display = 'block';
+        return;
+      }
+
+      msg.textContent = `Sucesso! Cliente "${nome}" cadastrado com sucesso.`;
+      msg.className = 'feedback-message success';
+      msg.style.display = 'block';
+    }
+  </script>
+</body>
+</html>

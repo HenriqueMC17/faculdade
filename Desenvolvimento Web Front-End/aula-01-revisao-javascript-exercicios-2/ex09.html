@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 9 — Cadastro de Usuário e Validação</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+    .card { max-width: 500px; width: 100%; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Exercício 9 — Validação de Usuário</h2>
+    <p class="description">Validação: Todos os campos obrigatórios, Senha == Confirmar Senha, Senha entre 6 e 10 caracteres.</p>
+    
+    <form class="custom-form" onsubmit="validar(event)">
+      <div id="msg" class="feedback-message" style="display: none;"></div>
+
+      <div class="form-group">
+        <label for="login">Login: <span class="required">*</span></label>
+        <input type="text" id="login" class="form-control" placeholder="Digite seu login">
+      </div>
+
+      <div class="form-group">
+        <label for="senha">Senha (6-10 caracteres): <span class="required">*</span></label>
+        <input type="password" id="senha" class="form-control" placeholder="Digite sua senha">
+      </div>
+
+      <div class="form-group">
+        <label for="confirmar">Confirmar Senha: <span class="required">*</span></label>
+        <input type="password" id="confirmar" class="form-control" placeholder="Confirme sua senha">
+      </div>
+
+      <button type="submit" class="btn btn-success btn-block">Submeter Cadastro</button>
+    </form>
+
+    <p style="text-align: center; margin-top: 25px;"><a href="index.html">← Voltar ao Portal Central</a></p>
+  </div>
+
+  <script>
+    function validar(e) {
+      e.preventDefault();
+      const login = document.getElementById('login').value.trim();
+      const senha = document.getElementById('senha').value;
+      const confirmar = document.getElementById('confirmar').value;
+      const msg = document.getElementById('msg');
+
+      if (!login || !senha || !confirmar) {
+        msg.textContent = 'Erro: Todos os campos devem ser preenchidos.';
+        msg.className = 'feedback-message error';
+        msg.style.display = 'block';
+        return;
+      }
+
+      if (senha.length < 6 || senha.length > 10) {
+        msg.textContent = 'Erro: A senha deve possuir entre 6 e 10 caracteres.';
+        msg.className = 'feedback-message error';
+        msg.style.display = 'block';
+        return;
+      }
+
+      if (senha !== confirmar) {
+        msg.textContent = 'Erro: As senhas não coincidem.';
+        msg.className = 'feedback-message error';
+        msg.style.display = 'block';
+        return;
+      }
+
+      msg.textContent = 'Sucesso! Usuário cadastrado com sucesso.';
+      msg.className = 'feedback-message success';
+      msg.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
