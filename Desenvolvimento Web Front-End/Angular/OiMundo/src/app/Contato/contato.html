@@ -1,0 +1,112 @@
+<div class="contato-container">
+  <!-- Header Section -->
+  <header class="contato-header">
+    <span class="badge">📬 Entre em Contato</span>
+    <h1 class="contato-title">Vamos Conversar?</h1>
+    <p class="contato-subtitle">
+      Tem algum projeto em mente, dúvidas sobre meus trabalhos ou deseja trocar ideias sobre tecnologia? Envie uma mensagem!
+    </p>
+  </header>
+
+  <div class="contato-grid">
+    <!-- Form Section -->
+    <section class="card form-card">
+      <h2 class="card-title">
+        <span class="title-icon">✍️</span> Envie uma Mensagem
+      </h2>
+
+      <form class="contato-form" (submit)="$event.preventDefault()">
+        <div class="form-group">
+          <label for="nome">Nome Completo</label>
+          <input type="text" id="nome" placeholder="Digite seu nome..." required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Seu E-mail</label>
+          <input type="email" id="email" placeholder="seuemail@exemplo.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="assunto">Assunto</label>
+          <input type="text" id="assunto" placeholder="Motivo do contato..." required />
+        </div>
+
+        <div class="form-group">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">
+          <span>Enviar Mensagem</span>
+          <span class="btn-icon">🚀</span>
+        </button>
+      </form>
+    </section>
+
+    <!-- Contact Info & Socials -->
+    <aside class="info-sidebar">
+      <!-- Direct Contacts -->
+      <section class="card info-card">
+        <h2 class="card-title">
+          <span class="title-icon">📇</span> Informações de Contato
+        </h2>
+
+        <div class="info-list">
+          <div class="info-item">
+            <div class="info-icon">📧</div>
+            <div class="info-text">
+              <span class="info-label">E-mail</span>
+              <span class="info-value">seuemail&#64;dominio.com</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div class="info-text">
+              <span class="info-label">Localização</span>
+              <span class="info-value">Brasil</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">🟢</div>
+            <div class="info-text">
+              <span class="info-label">Status</span>
+              <span class="info-value">Disponível para Projetos</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Social Networks Grid -->
+      <section class="card social-card">
+        <h2 class="card-title">
+          <span class="title-icon">🌐</span> Redes Sociais
+        </h2>
+        <p class="social-desc">Conecte-se comigo através das minhas redes oficiais:</p>
+
+        <div class="social-grid">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-item">
+            <span class="social-icon">🐙</span>
+            <span class="social-name">GitHub</span>
+          </a>
+
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-item">
+            <span class="social-icon">💼</span>
+            <span class="social-name">LinkedIn</span>
+          </a>
+
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-item">
+            <span class="social-icon">📸</span>
+            <span class="social-name">Instagram</span>
+          </a>
+
+          <a href="https://wa.me" target="_blank" rel="noopener noreferrer" class="social-item">
+            <span class="social-icon">💬</span>
+            <span class="social-name">WhatsApp</span>
+          </a>
+        </div>
+      </section>
+    </aside>
+  </div>
+</div>
