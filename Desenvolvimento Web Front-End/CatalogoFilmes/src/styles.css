@@ -1,0 +1,252 @@
+/* ============================================================
+   ESTILO NETFLIX (Global Styles)
+   Paleta:
+   - Vermelho Netflix: #E50914
+   - Fundo Escuro:     #221F1F
+   - Branco:           #FFFFFF
+   ============================================================ */
+
+:root {
+  --netflix-red: #E50914;
+  --netflix-red-hover: #B80710;
+  --netflix-dark: #221F1F;
+  --netflix-black: #141414;
+  --netflix-card: #2B2727;
+  --netflix-card-hover: #363232;
+  --netflix-white: #FFFFFF;
+  --netflix-gray: #A3A3A3;
+  --netflix-border: #3D3838;
+}
+
+/* Reset e Estilo Geral */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--netflix-dark);
+  color: var(--netflix-white);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Barra de Navegação e Header do App */
+h1 {
+  color: var(--netflix-red);
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 1.5rem 2rem 0.5rem 2rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+  background-color: var(--netflix-black);
+  border-bottom: 3px solid var(--netflix-red);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+nav a {
+  color: var(--netflix-white);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+nav a:hover {
+  color: var(--netflix-red);
+  transform: scale(1.05);
+}
+
+/* ============================================================
+   Customização do Catálogo de Filmes (Tema Netflix)
+   ============================================================ */
+
+app-catalogo-filmes .catalogo-container {
+  color: var(--netflix-white) !important;
+}
+
+app-catalogo-filmes .catalogo-header h2 {
+  color: var(--netflix-red) !important;
+  font-size: 2.4rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 10px rgba(229, 9, 20, 0.4);
+}
+
+app-catalogo-filmes .catalogo-header p {
+  color: var(--netflix-gray) !important;
+}
+
+/* Cards com estética escura Netflix */
+app-catalogo-filmes .card-adicionar,
+app-catalogo-filmes .card-lista,
+app-catalogo-filmes .card-detalhes,
+app-catalogo-filmes .alerta-nenhum-selecionado {
+  background: var(--netflix-card) !important;
+  border: 1px solid var(--netflix-border) !important;
+  color: var(--netflix-white) !important;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
+}
+
+app-catalogo-filmes .card-adicionar h3,
+app-catalogo-filmes .card-lista h3,
+app-catalogo-filmes .detalhes-header h4 {
+  color: var(--netflix-white) !important;
+  font-weight: 700;
+}
+
+app-catalogo-filmes .card-lista h3 {
+  border-bottom: 2px solid var(--netflix-border) !important;
+}
+
+/* Input com estilo Dark */
+app-catalogo-filmes .input-filme {
+  background-color: var(--netflix-black) !important;
+  color: var(--netflix-white) !important;
+  border: 1.5px solid var(--netflix-border) !important;
+  border-radius: 8px;
+}
+
+app-catalogo-filmes .input-filme::placeholder {
+  color: #777777;
+}
+
+app-catalogo-filmes .input-filme:focus {
+  border-color: var(--netflix-red) !important;
+  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.35) !important;
+}
+
+/* Itens da Lista de Filmes */
+app-catalogo-filmes .item-filme {
+  background-color: #201D1D !important;
+  border: 1px solid var(--netflix-border) !important;
+  color: var(--netflix-white) !important;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+app-catalogo-filmes .item-filme:hover {
+  background-color: var(--netflix-card-hover) !important;
+  border-color: var(--netflix-red) !important;
+  color: var(--netflix-white) !important;
+  transform: translateX(6px);
+}
+
+app-catalogo-filmes .item-filme.selecionado {
+  background-color: var(--netflix-red) !important;
+  border-color: var(--netflix-red) !important;
+  color: var(--netflix-white) !important;
+  box-shadow: 0 4px 16px rgba(229, 9, 20, 0.5) !important;
+}
+
+app-catalogo-filmes .item-filme.selecionado .seta {
+  color: var(--netflix-white) !important;
+}
+
+/* Detalhes e Destaque de Favorito */
+app-catalogo-filmes .card-detalhes.favorito {
+  border-color: var(--netflix-red) !important;
+  background: linear-gradient(145deg, #2B2727 0%, #3a1c1e 100%) !important;
+  box-shadow: 0 8px 28px rgba(229, 9, 20, 0.4) !important;
+}
+
+app-catalogo-filmes .badge {
+  background-color: var(--netflix-black) !important;
+  color: var(--netflix-gray) !important;
+  border: 1px solid var(--netflix-border) !important;
+}
+
+app-catalogo-filmes .badge.badge-favorito {
+  background-color: var(--netflix-red) !important;
+  color: var(--netflix-white) !important;
+  border: 1px solid var(--netflix-red) !important;
+  box-shadow: 0 2px 8px rgba(229, 9, 20, 0.4);
+}
+
+app-catalogo-filmes .info-visualizacoes {
+  background-color: var(--netflix-black) !important;
+  border: 1px solid var(--netflix-border) !important;
+}
+
+app-catalogo-filmes .info-visualizacoes p {
+  color: var(--netflix-white) !important;
+}
+
+app-catalogo-filmes .contador {
+  color: var(--netflix-red) !important;
+  font-weight: 800;
+}
+
+/* Botões Estilo Netflix */
+app-catalogo-filmes .btn-adicionar {
+  background-color: var(--netflix-red) !important;
+  color: var(--netflix-white) !important;
+}
+
+app-catalogo-filmes .btn-adicionar:hover:not(:disabled) {
+  background-color: var(--netflix-red-hover) !important;
+}
+
+app-catalogo-filmes .btn-adicionar:disabled {
+  background-color: #4A4444 !important;
+  color: #777777 !important;
+  border: none !important;
+}
+
+app-catalogo-filmes .btn-favorito {
+  background-color: var(--netflix-red) !important;
+  color: var(--netflix-white) !important;
+}
+
+app-catalogo-filmes .btn-favorito:hover {
+  background-color: var(--netflix-red-hover) !important;
+}
+
+app-catalogo-filmes .btn-favorito.btn-remover {
+  background-color: transparent !important;
+  color: var(--netflix-red) !important;
+  border: 1.5px solid var(--netflix-red) !important;
+}
+
+app-catalogo-filmes .btn-favorito.btn-remover:hover {
+  background-color: rgba(229, 9, 20, 0.15) !important;
+}
+
+app-catalogo-filmes .btn-views {
+  background-color: #3D3838 !important;
+  color: var(--netflix-white) !important;
+  border: 1px solid #555555 !important;
+}
+
+app-catalogo-filmes .btn-views:hover {
+  background-color: #4E4848 !important;
+  border-color: var(--netflix-red) !important;
+}
+
+/* Alerta de nenhum filme selecionado */
+app-catalogo-filmes .alerta-nenhum-selecionado {
+  border: 2px dashed #4D4747 !important;
+  background-color: #232020 !important;
+}
+
+app-catalogo-filmes .alerta-nenhum-selecionado p {
+  color: var(--netflix-white) !important;
+}
+
+app-catalogo-filmes .alerta-nenhum-selecionado small {
+  color: var(--netflix-gray) !important;
+}
