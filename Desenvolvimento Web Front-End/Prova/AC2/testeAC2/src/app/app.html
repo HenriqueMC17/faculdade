@@ -1,17 +1,17 @@
 <div class="main-container">
   <header class="app-header">
-    <h1> Sistema de Empréstimo de Livros</h1>
+    <h1>📚 Sistema de Empréstimo de Livros</h1>
   </header>
 
   <main class="app-content">
     <section class="section-card">
       <h2>Cadastrar Empréstimo</h2>
-      <app-cadastrar-emprestimo></app-cadastrar-emprestimo>
+      <app-cadastrar-emprestimo (emprestimoAdicionado)="lista.load()"></app-cadastrar-emprestimo>
     </section>
 
     <section class="section-card">
       <h2>Empréstimos Cadastrados</h2>
-      <app-lista-emprestimos></app-lista-emprestimos>
+      <app-lista-emprestimos #lista></app-lista-emprestimos>
     </section>
   </main>
 </div>

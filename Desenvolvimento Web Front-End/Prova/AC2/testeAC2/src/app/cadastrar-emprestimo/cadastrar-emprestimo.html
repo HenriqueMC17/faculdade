@@ -1,15 +1,15 @@
-<form (ngSubmit)="onSubmit()" #emprestimoForm="ngForm">
+<form (ngSubmit)="onSubmit(emprestimoForm)" #emprestimoForm="ngForm">
   <label>
     Nome da pessoa:
-    <input type="text" [(ngModel)]="nomePessoa" name="nomePessoa" required />
+    <input type="text" [(ngModel)]="nomePessoa" name="nomePessoa" placeholder="Digite o nome da pessoa" required />
   </label>
   <label>
     Título do livro:
-    <input type="text" [(ngModel)]="tituloLivro" name="tituloLivro" required />
+    <input type="text" [(ngModel)]="tituloLivro" name="tituloLivro" placeholder="Digite o título do livro" required />
   </label>
   <label>
     Data prevista de devolução:
     <input type="date" [(ngModel)]="dataPrevistaDevolucao" name="dataPrevistaDevolucao" required />
   </label>
-  <button type="submit" [disabled]="!emprestimoForm.form.valid">Adicionar</button>
+  <button type="submit" [disabled]="!nomePessoa || !tituloLivro || !dataPrevistaDevolucao">Adicionar</button>
 </form>

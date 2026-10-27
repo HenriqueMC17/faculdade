@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EmprestimoService } from '../emprestimo-service';
 import { Emprestimo } from '../emprestimo';
@@ -11,25 +11,38 @@ import { Emprestimo } from '../emprestimo';
   styleUrls: ['./lista-emprestimos.css']
 })
 export class ListaEmprestimos {
-  constructor(private emprestimoService: EmprestimoService) {}
+  constructor(
+    private emprestimoService: EmprestimoService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   get emprestimos(): Emprestimo[] {
     return this.emprestimoService.listar();
   }
 
   load(): void {
-    // mantido para compatibilidade
+    this.cdr.detectChanges();
   }
 
   remover(id: string): void {
     this.emprestimoService.remover(id);
+    this.cdr.detectChanges();
   }
 
   registrarDevolucao(id: string): void {
     this.emprestimoService.registrarDevolucao(id);
+    this.cdr.detectChanges();
   }
 
-  get total(): number { return this.emprestimos.length; }
-  get emAberto(): number { return this.emprestimos.filter(e => !e.devolvido).length; }
-  get devolvidos(): number { return this.emprestimos.filter(e => e.devolvido).length; }
+  get total(): number {
+    return this.emprestimos.length;
+  }
+
+  get emAberto(): number {
+    return this.emprestimos.filter(e => !e.devolvido).length;
+  }
+
+  get devolvidos(): number {
+    return this.emprestimos.filter(e => e.devolvido).length;
+  }
 }

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { EmprestimoService } from '../emprestimo-service';
 import { Emprestimo } from '../emprestimo';
@@ -16,16 +16,28 @@ export class CadastrarEmprestimo {
   tituloLivro: string = '';
   dataPrevistaDevolucao: string = '';
 
+  @Output() emprestimoAdicionado = new EventEmitter<void>();
+
   constructor(private emprestimoService: EmprestimoService) {}
 
-  onSubmit(): void {
+  onSubmit(form?: NgForm): void {
+    if (!this.nomePessoa || !this.tituloLivro || !this.dataPrevistaDevolucao) {
+      return;
+    }
+
     const novo: Emprestimo = {
-      nomePessoa: this.nomePessoa,
-      tituloLivro: this.tituloLivro,
+      nomePessoa: this.nomePessoa.trim(),
+      tituloLivro: this.tituloLivro.trim(),
       dataPrevistaDevolucao: this.dataPrevistaDevolucao,
       devolvido: false
     };
+
     this.emprestimoService.adicionar(novo);
+    this.emprestimoAdicionado.emit();
+
+    if (form) {
+      form.resetForm();
+    }
     this.nomePessoa = '';
     this.tituloLivro = '';
     this.dataPrevistaDevolucao = '';

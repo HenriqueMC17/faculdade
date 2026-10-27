@@ -1,34 +1,34 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Emprestimo } from './emprestimo';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class EmprestimoService {
-  private emprestimos: Emprestimo[] = [];
+  private emprestimosSignal = signal<Emprestimo[]>([]);
 
   listar(): Emprestimo[] {
-    return [...this.emprestimos];
+    return this.emprestimosSignal();
   }
 
   adicionar(emprestimo: Emprestimo): void {
     const novo: Emprestimo = {
       ...emprestimo,
-      id: Date.now().toString() + Math.random().toString(36).substr(2, 5),
+      id: Date.now().toString() + Math.random().toString(36).substring(2, 7),
       devolvido: false
     };
-    this.emprestimos.push(novo);
+    this.emprestimosSignal.update(lista => [...lista, novo]);
   }
 
   remover(id: string): void {
-    this.emprestimos = this.emprestimos.filter(e => e.id !== id);
+    this.emprestimosSignal.update(lista => lista.filter(e => e.id !== id));
   }
 
   registrarDevolucao(id: string): void {
-    const emp = this.emprestimos.find(e => e.id === id);
-    if (emp) {
-      emp.devolvido = true;
-    }
+    this.emprestimosSignal.update(lista =>
+      lista.map(e => e.id === id ? { ...e, devolvido: true } : e)
+    );
   }
 
   registrarDevolução(id: string): void {
