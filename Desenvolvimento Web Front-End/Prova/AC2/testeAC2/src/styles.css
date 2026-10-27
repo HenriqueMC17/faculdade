@@ -1,0 +1,29 @@
+/* src/app/lista-emprestimos/lista-emprestimos.css */
+.status-badge.open {
+  background: #ffeb3b;      /* amarelo */
+  color: #000;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+.status-badge.devolvido {
+  background: #81c784;      /* verde */
+  color: #000;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+.emprestimos-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.emprestimos-table th,
+.emprestimos-table td {
+  border: 1px solid #ffffff;
+  padding: 0.5rem;
+  text-align: left;
+}
+.counters p {
+  margin: 0.2rem 0;
+}
+button {
+  margin-right: 0.5rem;
+}

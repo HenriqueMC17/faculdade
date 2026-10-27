@@ -1,0 +1,39 @@
+<div class="counters">
+  <p>Total: {{ total }}</p>
+  <p>Em Aberto: {{ emAberto }}</p>
+  <p>Devolvidos: {{ devolvidos }}</p>
+</div>
+
+<div *ngIf="emprestimos.length > 0; else emptyState">
+  <table class="emprestimos-table">
+    <thead>
+      <tr>
+        <th>Pessoa</th>
+        <th>Livro</th>
+        <th>Data Prevista</th>
+        <th>Status</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of emprestimos">
+        <td>{{ emp.nomePessoa }}</td>
+        <td>{{ emp.tituloLivro }}</td>
+        <td>{{ emp.dataPrevistaDevolucao }}</td>
+        <td>
+          <span class="status-badge" [ngClass]="{'open': !emp.devolvido, 'devolvido': emp.devolvido}">
+            {{ emp.devolvido ? 'Devolvido' : 'Aberto' }}
+          </span>
+        </td>
+        <td>
+          <button (click)="remover(emp.id!)">Remover</button>
+          <button (click)="registrarDevolucao(emp.id!)" [disabled]="emp.devolvido">Registrar Devolução</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #emptyState>
+  <p>Nenhum emprestimo cadastrado</p>
+</ng-template>
