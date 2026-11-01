@@ -214,8 +214,7 @@ A classe `TesteCalculadora` cobre os seguintes cenarios:
 
 ### Prints da Execucao dos Testes
 
-> Adicione aqui as capturas de tela apos executar os testes.
-> Caminho sugerido: `images/testes/`
+![alt text](<images/testes/Captura de tela 2026-10-30 185335.png>)
 
 ---
 
@@ -231,8 +230,7 @@ Acesse: `docs/index.html`
 
 ### Prints da Documentacao JavaDoc
 
-> Adicione aqui as capturas de tela da documentacao JavaDoc.
-> Caminho sugerido: `images/javadoc/`
+![alt text](<images/javadoc/Captura de tela 2026-10-30 185109.png>)
 
 ---
 
@@ -254,8 +252,7 @@ Apos a refatoracao, todos os 17 testes foram executados novamente e continuam pa
 
 ### Prints da Refatoracao
 
-> Adicione aqui as capturas de tela da branch Refatoracao.
-> Caminho sugerido: `images/refatoracao/`
+![alt text](<images/refatoracao/Captura de tela 2026-10-30 185244.png>)
 
 ---
 
@@ -284,9 +281,7 @@ Apos a refatoracao, todos os 17 testes foram executados novamente e continuam pa
 
 ## 15. Repositorio
 
-**Link:** https://github.com/seu-usuario/projeto_calculadora
-
-> Substitua pelo link real apos publicar no GitHub.
+**Link:** https://github.com/HenriqueMC17/faculdade/tree/main/UX%20-%20UI%20e%20Testes%20de%20Software/Projeto_calculadora
 
 ---
 
